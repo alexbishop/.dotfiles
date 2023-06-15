@@ -1,1 +1,1 @@
-alias lynx="lynx -cfg=/home/alex/.config/lynx/lynx.cfg -lss=/home/alex/.config/lynx/lynx.lss"
+alias lynx="lynx -cfg=~/.config/lynx/lynx.cfg -lss=~/.config/lynx/lynx.lss"
