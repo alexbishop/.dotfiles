@@ -58,8 +58,9 @@ After placing the dotfiles in `.config/nvim`
  2. open `nvim` again, and wait for it to install all the treesitter packages and lsps.
     * run `:messages` to check the progress of treesitter; and
     * run `:Mason` to check the progress of the lsp installs.
+ 3. After the installs finish, restart neovim to ensure that changes take effect
 
 ### tmux
 
-Open tmux, prex `C-b`, then `I` (in sequence, not together). Tmux will then download the packages.
+Open tmux, press `C-b`, then `I` (in sequence, not together). Tmux will then download the packages.
 After this, restart tmux to make sure the changes take effect.
