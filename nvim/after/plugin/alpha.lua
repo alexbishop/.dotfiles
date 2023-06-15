@@ -8,6 +8,8 @@ if not status_okay2 then
   return
 end
 
+-- I copied this header from
+--   https://github.com/goolord/alpha-nvim/discussions/16#discussioncomment-2386388
 dashboard.section.header.val = {
 	[[   ⣴⣶⣤⡤⠦⣤⣀⣤⠆     ⣈⣭⣿⣶⣿⣦⣼⣆          ]],
 	[[    ⠉⠻⢿⣿⠿⣿⣿⣶⣦⠤⠄⡠⢾⣿⣿⡿⠋⠉⠉⠻⣿⣿⡛⣦       ]],
