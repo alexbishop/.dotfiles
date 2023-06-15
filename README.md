@@ -10,6 +10,7 @@ git clone --recurse-submodules https://github.com/alexbishop/.dotfiles
 or
 ```sh
 git clone https://github.com/alexbishop/.dotfiles
+cd .dotfiles
 git submodule init
 git submodule update
 ```
