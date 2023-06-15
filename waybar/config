@@ -1,0 +1,151 @@
+{
+	"layer": "top",
+	"position": "top",
+
+	"modules-left": [
+		"sway/mode",
+		"sway/workspaces"
+  ],
+
+  "modules-center": [
+    "sway/window"
+  ],
+
+	"modules-right": [
+		"custom/keyboard_backlight",
+		"pulseaudio",
+		"battery",
+		"idle_inhibitor",
+		"tray",
+    "clock#date",
+    "clock#time"
+	],
+
+	// Modules
+
+	"idle_inhibitor": {
+		"format": "{icon}",
+		"format-icons": {
+			"activated": "",
+			"deactivated": ""
+		}
+	},
+
+	"battery": {
+		"interval": 1,
+		"states": {
+			"warning": 30,
+			"critical": 15
+		},
+		"format-time": "{H}:{M:02}",
+		"format": "{icon} {capacity}% ({time})",
+		"format-charging": " {capacity}% ({time})",
+		"format-charging-full": " {capacity}%",
+		"format-full": "{icon} {capacity}%",
+		"format-icons": [
+			"\uf244",
+			"\uf243",
+			"\uf242",
+			"\uf241",
+			"\uf240"
+		],
+		"tooltip": false
+	},
+
+	"custom/keyboard_backlight": {
+		"exec": "/home/alex/.config/waybar/kb_brightness.sh",
+		"interval": 1,
+		"tooltip": false,
+    "return-type": "json"
+	},
+
+	"clock#time": {
+		"interval": 1,
+		"format": "{:%H:%M:%S}",
+		"tooltip": false
+	},
+
+	"clock#date": {
+		"interval": 1,
+		"format": "{:%a %e %b %Y}",
+		"tooltip": false
+	},
+
+	"cpu": {
+		"interval": 1,
+		"tooltip": false,
+		"format": " {usage:02}%",
+		"format-alt": " {load}",
+		"states": {
+			"warning": 70,
+			"critical": 90
+		}
+	},
+
+	"sway/language": {
+		"format": " {}",
+		"min-length": 5,
+		"on-click": "swaymsg 'input * xkb_switch_layout next'",
+		"tooltip": false
+	},
+
+	"memory": {
+		"interval": 1,
+		"format": "\uf538 {used:0.1f}G/{total:0.1f}G",
+		"states": {
+			"warning": 70,
+			"critical": 90
+		},
+		"tooltip": false
+	},
+
+	"network": {
+		"interval": 1,
+		"format-wifi": " {essid} ({signalStrength}%)",
+		"format-ethernet": " {ifname}",
+		"format-disconnected": "No connection",
+		"format-alt": " {ipaddr}/{cidr}",
+		"tooltip": false
+	},
+
+	"sway/mode": {
+		"format": "{}",
+		"tooltip": false
+	},
+
+	"sway/window": {
+		"format": "{}",
+		"max-length": 50,
+		"tooltip": false
+	},
+
+	"sway/workspaces": {
+		"disable-scroll-wraparound": true,
+		"smooth-scrolling-threshold": 4,
+		"enable-bar-scroll": true,
+		"format": "{name}"
+	},
+
+	"pulseaudio": {
+		"format": "{icon} {volume}%",
+		"format-bluetooth": "{icon} {volume}%",
+		"format-muted": "\uf6a9",
+		"format-icons": {
+			"headphone": "",
+			"hands-free": "",
+			"headset": "",
+			"phone": "",
+			"portable": "",
+			"car": "",
+			"default": ["", ""]
+		},
+		"scroll-step": 1,
+		"on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+		"tooltip": false
+	},
+
+  "tray": {
+		"icon-size": 18
+		//"spacing": 10
+	},
+}

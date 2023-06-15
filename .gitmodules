@@ -1,0 +1,6 @@
+[submodule "tmux/plugins/tpm"]
+	path = tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm
+[submodule "lynx"]
+	path = lynx
+	url = http://github.com/skilstak/config-lynx
