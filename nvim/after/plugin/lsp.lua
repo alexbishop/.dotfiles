@@ -12,19 +12,13 @@ lsp.ensure_installed({
   "lua_ls",
 })
 
-local status_okay2, lspconfig = pcall(require, "lspconfig")
-if status_okay2 then
-  lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
-end
+-- fix problems with vim not being recognised by lsp
+require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
 
 local cmp_mappings = lsp.defaults.cmp_mappings()
-
--- Using tab here drives me crazy
-cmp_mappings["C-j"] = cmp_mappings["<Tab>"]
-cmp_mappings["C-k"] = cmp_mappings["<S-Tab>"]
+-- Using tab and arrow keys drives me crazy
 cmp_mappings['<Tab>'] = nil
 cmp_mappings['<S-Tab>'] = nil
--- I also don't like the use of up and down in completion
 cmp_mappings['<Down>'] = nil
 cmp_mappings['<Up>'] = nil
 
@@ -77,14 +71,11 @@ lsp.setup_nvim_cmp({
   },
 })
 
-lsp.set_preferences({
-  suggest_lsp_servers = false,
-  sign_icons = {
-    error = 'E',
-    warn = 'W',
-    hint = 'H',
-    info = 'I'
-  }
+lsp.set_sign_icons({
+  error = '✘',
+  warn = '▲',
+  hint = '⚑',
+  info = '»'
 })
 
 lsp.on_attach(function(client, bufnr)
@@ -93,7 +84,3 @@ lsp.on_attach(function(client, bufnr)
 end)
 
 lsp.setup()
-
-vim.diagnostic.config({
-  virtual_text = true
-})
