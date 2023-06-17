@@ -16,7 +16,7 @@ vim.g.maplocalleader = " "
 --   term_mode = "t",
 --   command_mode = "c",
 
---cancel jumpable
+-- Cancel all jumpable
 vim.keymap.set({ "i", "s", "n" }, "<C-E>", function()
   local luasnip = require("luasnip")
   while luasnip.jumpable() do
