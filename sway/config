@@ -111,13 +111,14 @@ input type:keyboard {
 }
 
 input "1267:27:Elan_Touchpad" {
-  dwt enabled
+#  dwt enable
   tap enabled
   middle_emulation enabled
   pointer_accel 0.5
 }
 
 input "1267:27:Elan_TrackPoint" {
+  pointer_accel 0.5
 } 
 
 
