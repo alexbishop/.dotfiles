@@ -67,7 +67,7 @@
 
 	"clock#date": {
 		"interval": 1,
-		"format": "{:%a %e %b %Y}",
+		"format": "{:%a %d %b %Y}",
 		"tooltip": false
 	},
 
