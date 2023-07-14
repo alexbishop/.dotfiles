@@ -61,6 +61,9 @@ return packer.startup(function(use)
   use("catppuccin/nvim")
   use("folke/tokyonight.nvim")
 
+  -- latex
+  use("lervag/vimtex")
+
   -- more advanced undos
   use({ "mbbill/undotree" })
 

@@ -110,7 +110,7 @@ input type:keyboard {
     repeat_rate 50
 }
 
-input "1267:27:Elan_Touchpad" {
+input type:touchpad {
   dwt enabled
   tap enabled
   scroll_method two_finger

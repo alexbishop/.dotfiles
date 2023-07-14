@@ -45,7 +45,10 @@ for k, v in pairs(options) do
 end
 
 -- make sure zig does not autosave files
-_,_ = pcall(vim.cmd, "let g:zig_fmt_autosave = 0")
+_ = pcall(vim.cmd, "let g:zig_fmt_autosave = 0")
+
+-- _ = pcall(vim.cmd, "let g:vimtex_view_general_viewer = 'okular'")
+-- _ = pcall(vim.cmd, "let g:vimtex_view_general_options = '--unique file:@pdf\\#src:@line@tex'")
 
 -- add support for cautocontinue of Doxygen-style comments in C and C++
 vim.api.nvim_create_autocmd("FileType", {
