@@ -18,7 +18,6 @@ light
 locate
 luarocks
 lynx
-okular
 pcmanfm
 pipewire
 ripgrep
