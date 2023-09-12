@@ -204,10 +204,10 @@
 
 /* Each critical module */
 #mode,
-#batter.critical.discharging {
+#battery.critical.discharging {
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   animation-direction: alternate;
   animation-name: blink-critical;
-  animation-duration: 1s;
+  animation-duration: 2s;
 }

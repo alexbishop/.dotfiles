@@ -13,7 +13,9 @@ gap
 gedit
 gh
 git
+grim
 inkscape
+jq
 light
 locate
 luarocks

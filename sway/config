@@ -140,7 +140,7 @@ input "1267:27:Elan_TrackPoint" {
     #     SPLIT='v' \
     #     kitty nnn -de
 
-    bindsym $mod+Shift+Return exec google-chrome
+    bindsym $mod+Shift+Return exec brave-browser
 
     #exec_always thunar --daemon
     bindsym $mod+t exec pcmanfm
@@ -294,6 +294,10 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
+
+bindsym Print exec grim -o \
+  $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') \
+  $(xdg-user-dir PICTURES)/screenshots/$(date +'screenshot_%Y%m%d_%H%M%S.png') 
 
 exec_always nm-applet --indicator
 
