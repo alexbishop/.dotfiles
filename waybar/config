@@ -4,13 +4,13 @@
 
 	"modules-left": [
 		"sway/mode",
-		"sway/workspaces"
+		"sway/workspaces",
+    "custom/scratchpad-indicator"
   ],
 
   "modules-center": [
     "sway/window"
   ],
-
 	"modules-right": [
 		"custom/keyboard_backlight",
 		"pulseaudio",
@@ -22,6 +22,15 @@
 	],
 
 	// Modules
+
+  "custom/scratchpad-indicator": {
+      "interval": 1,
+      "return-type": "json",
+      "exec": "swaymsg -t get_tree | jq --unbuffered --compact-output '(select(.name == \"root\") | .nodes[] | select(.name == \"__i3\") | .nodes[] | select(.name == \"__i3_scratch\") | .focus) as $scratch_ids | [.. | (.nodes? + .floating_nodes?) // empty | .[] | select(.id|IN($scratch_ids[]))] as $scratch_nodes | { text: \"\\($scratch_nodes|length)\", tooltip: $scratch_nodes|map(.name)|join(\"\\n\") }'",
+      "format": "   {} ",
+      "on-click": "swaymsg 'scratchpad show'",
+      "on-click-right": "swaymsg 'move scratchpad'"
+  },
 
 	"idle_inhibitor": {
 		"format": "{icon}",
