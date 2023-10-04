@@ -5,11 +5,14 @@ end
 
 local lsp = lspzero.preset({})
 
-lsp.ensure_installed({
-  'tsserver',
-  "zls",
-  "clangd",
-  "lua_ls",
+require('mason').setup({})
+require('mason-lspconfig').setup({
+  ensure_installed = {
+    'tsserver',
+    "zls",
+    "clangd",
+    "lua_ls",
+  }
 })
 
 -- fix problems with vim not being recognised by lsp
@@ -50,7 +53,9 @@ local kind_icons = {
   TypeParameter = "",
 }
 
-lsp.setup_nvim_cmp({
+local cmp = require('cmp')
+
+cmp.setup({
   mapping = cmp_mappings,
   formatting = {
     format = function(entry, vim_item)
