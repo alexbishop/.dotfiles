@@ -33,6 +33,7 @@ swayidle
 swaylock
 texlive-full
 texstudio
+tlp
 tmux
 vlc
 waybar

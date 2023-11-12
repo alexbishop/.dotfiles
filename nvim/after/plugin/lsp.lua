@@ -18,6 +18,8 @@ require('mason-lspconfig').setup({
 -- fix problems with vim not being recognised by lsp
 require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
 require("lspconfig").clangd.setup({})
+require("lspconfig").zls.setup({})
+require("lspconfig").html.setup({})
 
 local cmp_mappings = lsp.defaults.cmp_mappings()
 -- Using tab and arrow keys drives me crazy
