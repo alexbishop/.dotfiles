@@ -12,18 +12,18 @@ require('mason-lspconfig').setup({
     "zls",
     "clangd",
     "lua_ls",
-  }
+  },
+  handlers = {
+    lspzero.default_setup,
+    lua_ls = function()
+      require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
+    end
+  },
 })
 
--- fix problems with vim not being recognised by lsp
-require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
-require("lspconfig").clangd.setup({})
-require("lspconfig").zls.setup({})
-require("lspconfig").html.setup({})
-
 local cmp_mappings = lsp.defaults.cmp_mappings()
--- Using tab and arrow keys drives me crazy
 
+-- Using tab and arrow keys drives me crazy
 -- disable some default bindings that drive me crazy
 local loaded_okay, cmp = pcall(require, "cmp")
 if loaded_okay then
@@ -61,8 +61,6 @@ local kind_icons = {
   Operator = "",
   TypeParameter = "",
 }
-
-local cmp = require('cmp')
 
 cmp.setup({
   mapping = cmp_mappings,
