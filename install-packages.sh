@@ -12,6 +12,7 @@ foot
 gap
 gedit
 gh
+gimp
 git
 grim
 inkscape
