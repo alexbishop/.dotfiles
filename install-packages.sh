@@ -1,6 +1,7 @@
 #!/usr/bin/sh
 
 PACKAGES=$(cat << EOL
+bibtool
 build-essential
 clang-format
 clang

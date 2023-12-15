@@ -30,15 +30,33 @@ packer.util = require('packer.util')
 --   augroup end
 -- ]])
 
-packer.init({
-  snapshot = 'stable',
-  snapshot_path = packer.util.join_paths(vim.fn.stdpath('config'), 'packer.nvim'),
-  display = {
-    open_fn = function()
-      return require("packer.util").float({ border = "rounded" })
-    end,
-  },
-})
+local function file_exists(name)
+  local f = io.open(name, "r")
+  if f ~= nil then
+    io.close(f)
+    return true
+  else return false end
+end
+
+if file_exists(packer.util.join_paths(vim.fn.stdpath('config'), 'packer.nvim', 'stable')) then
+  packer.init({
+    snapshot = 'stable',
+    snapshot_path = packer.util.join_paths(vim.fn.stdpath('config'), 'packer.nvim'),
+    display = {
+      open_fn = function()
+        return require("packer.util").float({ border = "rounded" })
+      end,
+    },
+  })
+else
+  packer.init({
+    display = {
+      open_fn = function()
+        return require("packer.util").float({ border = "rounded" })
+      end,
+    },
+  })
+end
 
 -- Install your plugins here
 return packer.startup(function(use)

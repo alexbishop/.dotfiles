@@ -36,7 +36,7 @@ local setup = {
   icons = {
     breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
     separator = "➜", -- symbol used between a key and it's label
-    group = "+",      -- symbol prepended to a group
+    group = "+", -- symbol prepended to a group
   },
   popup_mappings = {
     scroll_down = "<c-d>", -- binding to scroll down inside the popup
@@ -165,6 +165,9 @@ local mappings = {
       "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
       "Workspace Symbols",
     },
+    ["@"] = {
+      "<cmd>lua require('lspconfig').ltex.setup({settings={ltex={language='en-AU'}}})<cr>", "Enable LTex"
+    }
   },
   s = {
     name = "Search",

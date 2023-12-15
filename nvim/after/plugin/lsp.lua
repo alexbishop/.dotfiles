@@ -12,12 +12,17 @@ require('mason-lspconfig').setup({
     "zls",
     "clangd",
     "lua_ls",
+    "texlab",
+    "ltex",
   },
   handlers = {
     lspzero.default_setup,
     lua_ls = function()
       require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
-    end
+    end,
+    -- By default we do not initialise ltex
+    --  it takes up way too much cpu power
+    ltex = function() end
   },
 })
 
