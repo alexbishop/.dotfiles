@@ -166,7 +166,8 @@ local mappings = {
       "Workspace Symbols",
     },
     ["@"] = {
-      "<cmd>lua require('lspconfig').ltex.setup({settings={ltex={language='en-AU'}}})<cr>", "Enable LTex"
+      "<cmd>lua require('lspconfig').ltex.setup({settings={ltex={language ='en-AU'}}})<cr><cmd>LspStart ltex<cr>",
+      "Enable LTex"
     }
   },
   s = {
