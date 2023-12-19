@@ -37,5 +37,6 @@ download_with_checksum \
   "$HOME/.local/bin/nvim" \
   "028cfaaf551d64cbb2f39d15363ed78edb01e2673579b48cb694e3604207d656" \
   || die
+chmod 755 "$HOME/.local/bin/nvim"
 
 exit 0
