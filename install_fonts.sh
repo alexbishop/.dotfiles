@@ -61,6 +61,8 @@ download_with_checksum \
   || die
 echo "Downloaded Font Awesome"
 
+mkdir -p "$HOME/.local/share/fonts" || die
+
 unzip "$HACK_ZIP" -d "$HOME/.local/share/fonts/hack" || die
 unzip "$FA_ZIP" -d "$HOME/.local/share/fonts/font-awesome" || ( fc-cache -fv ; die )
 
