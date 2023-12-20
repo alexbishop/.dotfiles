@@ -111,11 +111,9 @@ input type:keyboard {
 }
 
 input type:touchpad {
-#dwt enabled
   tap enabled
   scroll_method two_finger
   pointer_accel 1.0 
-  accel_profile adaptive
 }
 
 input "1267:27:Elan_TrackPoint" {
