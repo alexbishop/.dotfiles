@@ -139,7 +139,7 @@ input "1267:27:Elan_TrackPoint" {
     #     SPLIT='v' \
     #     kitty nnn -de
 
-    bindsym $mod+Shift+Return exec brave-browser
+    bindsym $mod+Shift+Return exec firefox
 
     #exec_always thunar --daemon
     bindsym $mod+t exec pcmanfm
