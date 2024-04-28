@@ -8,6 +8,7 @@ clang
 cmake
 curl
 evince
+fd-find
 ffmpeg
 foot
 gap
@@ -22,8 +23,11 @@ light
 locate
 luarocks
 lynx
+nodejs
+npm
 pcmanfm
 pipewire
+python3-neovim
 ripgrep
 ruby-bundler
 ruby-dev
@@ -43,6 +47,7 @@ wget
 wl-clipboard
 wofi
 xdg-desktop-portal-wlr
+xdotool
 xournalpp
 xwayland
 EOL
@@ -50,3 +55,4 @@ EOL
 
 # shellcheck disable=SC2086
 apt install $PACKAGES
+npm install -g tree-sitter-cli

@@ -35,7 +35,9 @@ fi
 
 # deletes the temp directory
 cleanup () {      
+  # shellcheck disable=SC2317
   rm -rf "$WORK_DIR"
+  # shellcheck disable=SC2317
   echo "Deleted temp working directory $WORK_DIR"
 }
 trap cleanup EXIT
