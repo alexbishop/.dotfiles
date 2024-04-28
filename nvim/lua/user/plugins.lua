@@ -35,7 +35,9 @@ local function file_exists(name)
   if f ~= nil then
     io.close(f)
     return true
-  else return false end
+  else
+    return false
+  end
 end
 
 if file_exists(packer.util.join_paths(vim.fn.stdpath('config'), 'packer.nvim', 'stable')) then
@@ -82,7 +84,7 @@ return packer.startup(function(use)
   use("folke/tokyonight.nvim")
 
   -- latex
-  use("lervag/vimtex")
+  use({ "lervag/vimtex", tag = "v2.15" })
 
   -- more advanced undos
   use({ "mbbill/undotree" })
@@ -105,7 +107,7 @@ return packer.startup(function(use)
       { 'hrsh7th/cmp-nvim-lua' },
 
       -- Snippets
-      { 'L3MON4D3/LuaSnip' },
+      { 'L3MON4D3/LuaSnip',                 run = "make install_jsregexp" },
       { 'rafamadriz/friendly-snippets' },
     }
   }
@@ -121,7 +123,7 @@ return packer.startup(function(use)
   use({ "lukas-reineke/indent-blankline.nvim" })
 
   -- Telescope
-  use({ "nvim-telescope/telescope.nvim"--, tag = "0.1.2"
+  use({ "nvim-telescope/telescope.nvim" --, tag = "0.1.2"
   })
   use({ "ahmedkhalf/project.nvim" })
 
