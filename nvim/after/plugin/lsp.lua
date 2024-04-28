@@ -20,6 +20,11 @@ require('mason-lspconfig').setup({
     lua_ls = function()
       require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
     end,
+    zls = function()
+      require("lspconfig").zls.setup({
+        settings = { zls = { enable_autofix = false } }
+      })
+    end,
     -- By default we do not initialise ltex
     --  it takes up way too much cpu power
     ltex = function() end
