@@ -84,7 +84,7 @@ return packer.startup(function(use)
   use("folke/tokyonight.nvim")
 
   -- latex
-  use({ "lervag/vimtex", tag = "v2.15" })
+  use({ "lervag/vimtex" }) --, tag = "v2.15" })
 
   -- more advanced undos
   use({ "mbbill/undotree" })
