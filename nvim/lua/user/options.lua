@@ -50,13 +50,13 @@ pcall(function() vim.cmd("let g:zig_fmt_autosave = 0") end)
 -- _ = pcall(vim.cmd, "let g:vimtex_view_general_viewer = 'okular'")
 -- _ = pcall(vim.cmd, "let g:vimtex_view_general_options = '--unique file:@pdf\\#src:@line@tex'")
 
--- add support for cautocontinue of Doxygen-style comments in C and C++
-vim.api.nvim_create_autocmd("FileType", {
-  desc = "Enable automatic comment insertion",
-  pattern = { "cpp", "c" },
-  group = vim.api.nvim_create_augroup("AutoComment", {}),
-  callback = function()
-    -- any other commets in cpp drive me crazy
-    vim.opt_local.comments = "s:/**,mb:*,e:*/,s:/*!,mb:*,e:*/,:///,://!"
-  end,
-})
+-- -- add support for cautocontinue of Doxygen-style comments in C and C++
+-- vim.api.nvim_create_autocmd("FileType", {
+--   desc = "Enable automatic comment insertion",
+--   pattern = { "cpp", "c" },
+--   group = vim.api.nvim_create_augroup("AutoComment", {}),
+--   callback = function()
+--     -- any other commets in cpp drive me crazy
+--     vim.opt_local.comments = "s:/**,mb:*,e:*/,s:/*!,mb:*,e:*/,:///,://!"
+--   end,
+-- })
