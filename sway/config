@@ -119,7 +119,7 @@ input type:touchpad {
 
 input "1267:27:Elan_TrackPoint" {
   accel_profile flat
-  pointer_accel 0.75
+  pointer_accel 0.5
 } 
 
 
