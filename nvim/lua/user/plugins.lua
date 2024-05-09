@@ -149,6 +149,24 @@ return packer.startup(function(use)
   -- Git
   use({ "lewis6991/gitsigns.nvim" })
 
+  use({
+    'Julian/lean.nvim',
+    -- event = { 'BufReadPre *.lean', 'BufNewFile *.lean' },
+
+    requires = {
+      'neovim/nvim-lspconfig',
+      'nvim-lua/plenary.nvim',
+      'hrsh7th/nvim-cmp', -- For LSP completion
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/vim-vsnip',           -- For snippets
+      'andrewradev/switch.vim',      -- For Lean switch support
+      -- 'tomtom/tcomment_vim',         -- For commenting motions
+      'nvim-telescope/telescope.nvim', -- For Loogle search
+      -- you also will likely want nvim-cmp or some completion engine
+    },
+  })
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
