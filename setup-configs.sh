@@ -1,6 +1,6 @@
 #!/usr/bin/sh
 
-for f in foot lynx nvim sway tmux waybar ; do
+for f in foot lynx nvim sway tmux waybar kitty ; do
   if [ ! -e ~/.config/$f ]
   then
     ln -s "$(pwd)/$f" ~/.config/$f

@@ -19,6 +19,7 @@ git
 grim
 inkscape
 jq
+kitty
 light
 locate
 luarocks
