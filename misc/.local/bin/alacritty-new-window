@@ -1,0 +1,5 @@
+#!/usr/bin/sh
+
+alacritty msg create-window --working-directory "$(pwd)"
+
+exit 0
