@@ -76,7 +76,7 @@ return packer.startup(function(use)
   use({ "nvim-lualine/lualine.nvim" })
 
   -- helps you remember your bindings
-  use({ "folke/which-key.nvim" })
+  use({ "folke/which-key.nvim", commit = "0539da005b98b02cf730c1d9da82b8e8edb1c2d2" })
 
   -- colorschemes
   use("LunarVim/Colorschemes")
@@ -133,7 +133,7 @@ return packer.startup(function(use)
   })
 
   -- I use this to run cmake
-  use({ "Shatur/neovim-tasks", requires = "nvim-lua/plenary.nvim" })
+  use({ "Shatur/neovim-tasks", requires = "nvim-lua/plenary.nvim", commit = "12fbbff7e91b1d07498f0574505e9d48baa9d7bf" })
 
   use({
     "danymat/neogen",
@@ -159,8 +159,8 @@ return packer.startup(function(use)
       'hrsh7th/nvim-cmp', -- For LSP completion
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-buffer',
-      'hrsh7th/vim-vsnip',           -- For snippets
-      'andrewradev/switch.vim',      -- For Lean switch support
+      'hrsh7th/vim-vsnip',             -- For snippets
+      'andrewradev/switch.vim',        -- For Lean switch support
       -- 'tomtom/tcomment_vim',         -- For commenting motions
       'nvim-telescope/telescope.nvim', -- For Loogle search
       -- you also will likely want nvim-cmp or some completion engine
