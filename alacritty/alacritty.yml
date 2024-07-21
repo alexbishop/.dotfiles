@@ -23,5 +23,3 @@ font:
     # style: Light
     style: Regular
 
-key_bindings:
-  - { key: N, mods: Control, command: {program: "alacritty-new-window", args: []}  }
