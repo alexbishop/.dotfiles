@@ -61,13 +61,13 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 -- the following `<Plug>' commands are provided by `numToStr/Comment.nvim'
 keymap(
   'x',
-  "gc",
+  "<C-_>",
   '<Plug>(comment_toggle_linewise_visual)',
   { desc = 'Comment toggle linewise' }
 )
 keymap(
   'x',
-  "gb",
+  "<C-M-_>",
   '<Plug>(comment_toggle_blockwise_visual)',
   { desc = 'Comment toggle blockwise' }
 )
