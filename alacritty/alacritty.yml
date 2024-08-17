@@ -23,3 +23,5 @@ font:
     # style: Light
     style: Regular
 
+key_bindings:
+  - { key: "T", mods: "Control|Shift", action: CreateNewWindow }
