@@ -63,13 +63,11 @@ keymap(
   'x',
   "<C-/>",
   "gc",
-  --'<Plug>(comment_toggle_linewise_visual)',
   { desc = 'Comment toggle linewise' }
 )
--- keymap(
---   'x',
---   "<C-M-/>",
---   "gcc",
---   --'<Plug>(comment_toggle_blockwise_visual)',
---   { desc = 'Comment toggle blockwise' }
--- )
+keymap(
+  'n',
+  "<C-/>",
+  "gcc",
+  { desc = 'Comment toggle blockwise' }
+)
