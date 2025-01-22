@@ -58,16 +58,18 @@ keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
--- the following `<Plug>' commands are provided by `numToStr/Comment.nvim'
+-- toggle comments
 keymap(
   'x',
-  "<C-_>",
-  '<Plug>(comment_toggle_linewise_visual)',
+  "<C-/>",
+  "gc",
+  --'<Plug>(comment_toggle_linewise_visual)',
   { desc = 'Comment toggle linewise' }
 )
-keymap(
-  'x',
-  "<C-M-_>",
-  '<Plug>(comment_toggle_blockwise_visual)',
-  { desc = 'Comment toggle blockwise' }
-)
+-- keymap(
+--   'x',
+--   "<C-M-/>",
+--   "gcc",
+--   --'<Plug>(comment_toggle_blockwise_visual)',
+--   { desc = 'Comment toggle blockwise' }
+-- )
