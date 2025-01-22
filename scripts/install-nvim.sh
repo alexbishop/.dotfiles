@@ -33,9 +33,9 @@ die() {
 mkdir -p "$HOME/.local/bin" || die
 
 download_with_checksum \
-  "https://github.com/neovim/neovim/releases/download/v0.9.5/nvim.appimage" \
+  "https://github.com/neovim/neovim/releases/download/v0.10.3/nvim.appimage" \
   "$HOME/.local/bin/nvim" \
-  "0c82e5702af7a11fbb916a11b4a82e98928abf8266c74b2030ea740340437bf9" \
+  "ce5f6462d4fa7150cc90c593955f66f7707ab5edc1d18f87413ea482e096c24e" \
   || die
 chmod 755 "$HOME/.local/bin/nvim"
 
