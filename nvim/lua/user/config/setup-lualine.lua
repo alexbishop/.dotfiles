@@ -34,7 +34,7 @@ local branch = {
 }
 
 local spaces = function()
-  return "spaces: " .. vim.apin.vim_get_option_value("sw", { buf = 0 })
+  return "spaces: " .. vim.api.nvim_get_option_value("sw", { buf = 0 })
 end
 
 lualine.setup({
