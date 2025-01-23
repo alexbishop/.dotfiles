@@ -104,7 +104,7 @@ local mappings = {
 
   -- Group: LSP
 
-  { "l", group = "LSP" },
+  { "<leader>l", group = "LSP" },
   {
     "<leader>la",
     function() vim.lsp.buf.code_action() end,
