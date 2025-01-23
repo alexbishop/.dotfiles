@@ -138,6 +138,15 @@ pckr.add({
   {
     "ziglang/zig.vim",
     config = function()
+      vim.cmd("let g:zig_fmt_autosave = 0")
+    end
+  },
+
+  -- latex
+
+  {
+    "lervag/vimtex",
+    config = function()
       vim.cmd("let g:vimtex_view_method = 'zathura'")
       vim.cmd("let g:vimtex_syntax_enabled = 0")
       vim.cmd("let g:vimtex_compiler_method = 'latexmk'")

@@ -42,6 +42,3 @@ local options = {
 for k, v in pairs(options) do
   vim.opt[k] = v
 end
-
--- make sure zig does not autosave files
-pcall(function() vim.cmd("let g:zig_fmt_autosave = 0") end)
