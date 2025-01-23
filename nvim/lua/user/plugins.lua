@@ -37,8 +37,9 @@ pckr.add({
 
   {
     "nvim-treesitter/nvim-treesitter",
-    config = function() require("user.config.setup-treesitter") end,
+    config = function() require("user.setup.treesitter") end,
   },
+
 
   -- Support for language servers
 
@@ -71,7 +72,7 @@ pckr.add({
       "saadparwaiz1/cmp_luasnip",
       "L3MON4D3/LuaSnip"
     },
-    config = function() require("user.config.setup-lsp-zero") end,
+    config = function() require("user.setup.lsp") end,
   },
 
 
@@ -83,8 +84,9 @@ pckr.add({
     requires = {
       "mbbill/undotree",
       "moll/vim-bbye",
+      "drybalka/tree-climber.nvim",
     },
-    config = function() require("user.config.setup-which-key") end,
+    config = function() require("user.setup.which-key") end,
   },
 
 
@@ -92,14 +94,17 @@ pckr.add({
 
   {
     "lewis6991/gitsigns.nvim",
-    config = function() require("user.config.setup-gitsigns") end,
+    config = function() require('gitsigns').setup() end,
   },
 
   -- UI
 
   {
     "akinsho/bufferline.nvim",
-    config = function() require("user.config.setup-bufferline") end,
+    requires = {
+      "moll/vim-bbye",
+    },
+    config = function() require("user.setup.bufferline") end,
   },
 
   {
@@ -108,7 +113,7 @@ pckr.add({
       "nvim-tree/nvim-web-devicons",
       "akinsho/bufferline.nvim",
     },
-    config = function() require("user.config.setup-lualine") end,
+    config = function() require("user.setup.lualine") end,
   },
 
 
@@ -117,7 +122,7 @@ pckr.add({
     requires = {
       "nvim-tree/nvim-web-devicons",
     },
-    config = function() require("user.config.setup-alpha") end,
+    config = function() require("user.setup.alpha") end,
   },
 
   {
@@ -125,7 +130,7 @@ pckr.add({
     requires = {
       "nvim-tree/nvim-web-devicons",
     },
-    config = function() require("user.config.setup-nvim-tree") end
+    config = function() require("user.setup.nvim-tree") end
   },
 
   -- ziglang

@@ -50,9 +50,22 @@ local mappings = {
     desc = "Toggle Undotree"
   },
 
+  -- group tree-climber
+
+  { "gt",      group = "Tree climber",                 mode = { 'n', 'v', 'o' } },
+
+  { "gth",     require('tree-climber').goto_parent,    desc = "Go to parent",       mode = { 'n', 'v', 'o' } },
+  { "gtl",     require('tree-climber').goto_child,     desc = "Go to child",        mode = { 'n', 'v', 'o' } },
+  { "gtj",     require('tree-climber').goto_next,      desc = "Go to next",         mode = { 'n', 'v', 'o' } },
+  { "gtk",     require('tree-climber').goto_prev,      desc = "Go to previous",     mode = { 'n', 'v', 'o' } },
+
+  { "gt<c-k>", require('tree-climber').swap_prev,      desc = "Swap with previous", mode = { 'n' } },
+  { "gt<c-j>", require('tree-climber').goto_next,      desc = "Swap with next",     mode = { 'n' } },
+  { "gt<c-h>", require('tree-climber').highlight_node, desc = "Highlight node",     mode = { 'n' } },
+
   -- Group: LSP
 
-  { "l", group = "LSP" },
+  { "l",       group = "LSP" },
   {
     "<leader>la",
     "<cmd>lua vim.lsp.buf.code_action()<cr>",
