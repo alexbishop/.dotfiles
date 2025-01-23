@@ -54,11 +54,9 @@ pckr.add({
   -- support for Mason which can be used to unstall language servers
 
   {
-    "VonHeikemen/lsp-zero.nvim",
-    branch = "v4.x",
+    "neovim/nvim-lspconfig",
     requires = {
       -- lsp stuff
-      "neovim/nvim-lspconfig",
       "hrsh7th/nvim-cmp",
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-path",
@@ -94,7 +92,7 @@ pckr.add({
 
   {
     "lewis6991/gitsigns.nvim",
-    config = function() require('gitsigns').setup() end,
+    config = function() require("gitsigns").setup() end,
   },
 
   -- UI
@@ -147,9 +145,9 @@ pckr.add({
   {
     "lervag/vimtex",
     config = function()
-      vim.g.vimtex_view_method = 'zathura'
+      vim.g.vimtex_view_method = "zathura"
       vim.g.vimtex_syntax_enabled = 0
-      vim.g.vimtex_compiler_method = 'latexmk'
+      vim.g.vimtex_compiler_method = "latexmk"
     end
   },
 

@@ -131,7 +131,13 @@ require("mason").setup({})
 require("mason-lspconfig").setup({
   ensure_installed = { "ts_ls", "pyright", "zls", "clangd", "lua_ls", "texlab", "ltex" },
   handlers = {
-    require("lsp-zero").default_setup,
+    -- default setup
+    function(server_name)
+      require("lspconfig")[server_name].setup({})
+    end,
+
+    -- custom setups
+
     lua_ls = function()
       local runtime_path = vim.split(package.path, ";")
       table.insert(runtime_path, "lua/?.lua")
