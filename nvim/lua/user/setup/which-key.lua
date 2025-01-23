@@ -9,7 +9,7 @@ local mappings = {
   },
   {
     "<leader>b",
-    "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+    function() require("telescope.builtin").buffers(require("telescope.themes").get_dropdown({ previewer = false })) end,
     desc = "Buffers",
   },
   {
@@ -29,7 +29,7 @@ local mappings = {
   },
   {
     "<leader>f",
-    "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+    function() require("telescope.builtin").find_files(require("telescope.themes").get_dropdown({ previewer = false })) end,
     desc = "Find files",
   },
   {
@@ -39,7 +39,7 @@ local mappings = {
   },
   {
     "<leader>P",
-    "<cmd>lua require('telescope').extensions.projects.projects()<cr>",
+    function() require("telescope").extensions.projects.projects() end,
     desc = "Projects"
   },
 
@@ -50,25 +50,64 @@ local mappings = {
     desc = "Toggle Undotree"
   },
 
-  -- group tree-climber
+  -- Group: tree-climber
 
-  { "gt",      group = "Tree climber",                 mode = { 'n', 'v', 'o' } },
+  {
+    "gt",
+    group = "Tree climber",
+    mode = { "n", "v", "o" }
+  },
 
-  { "gth",     require('tree-climber').goto_parent,    desc = "Go to parent",       mode = { 'n', 'v', 'o' } },
-  { "gtl",     require('tree-climber').goto_child,     desc = "Go to child",        mode = { 'n', 'v', 'o' } },
-  { "gtj",     require('tree-climber').goto_next,      desc = "Go to next",         mode = { 'n', 'v', 'o' } },
-  { "gtk",     require('tree-climber').goto_prev,      desc = "Go to previous",     mode = { 'n', 'v', 'o' } },
+  {
+    "gth",
+    require("tree-climber").goto_parent,
+    desc = "Go to parent",
+    mode = { "n", "v", "o" }
+  },
+  {
+    "gtl",
+    require("tree-climber").goto_child,
+    desc = "Go to child",
+    mode = { "n", "v", "o" }
+  },
+  {
+    "gtj",
+    require("tree-climber").goto_next,
+    desc = "Go to next",
+    mode = { "n", "v", "o" }
+  },
+  {
+    "gtk",
+    require("tree-climber").goto_prev,
+    desc = "Go to previous",
+    mode = { "n", "v", "o" }
+  },
 
-  { "gt<c-k>", require('tree-climber').swap_prev,      desc = "Swap with previous", mode = { 'n' } },
-  { "gt<c-j>", require('tree-climber').goto_next,      desc = "Swap with next",     mode = { 'n' } },
-  { "gt<c-h>", require('tree-climber').highlight_node, desc = "Highlight node",     mode = { 'n' } },
+  {
+    "gt<c-k>",
+    require("tree-climber").swap_prev,
+    desc = "Swap with previous",
+    mode = { "n" }
+  },
+  {
+    "gt<c-j>",
+    require("tree-climber").goto_next,
+    desc = "Swap with next",
+    mode = { "n" }
+  },
+  {
+    "gt<c-h>",
+    require("tree-climber").highlight_node,
+    desc = "Highlight node",
+    mode = { "n" }
+  },
 
   -- Group: LSP
 
-  { "l",       group = "LSP" },
+  { "l", group = "LSP" },
   {
     "<leader>la",
-    "<cmd>lua vim.lsp.buf.code_action()<cr>",
+    function() vim.lsp.buf.code_action() end,
     desc = "Code Action"
   },
   {
@@ -84,7 +123,7 @@ local mappings = {
   },
   {
     "<leader>lf",
-    "<cmd>lua vim.lsp.buf.format{async=true}<cr>",
+    function() vim.lsp.buf.format({ async = true }) end,
     desc = "Format"
   },
   {
@@ -99,28 +138,28 @@ local mappings = {
   },
   {
     "<leader>lj",
-    "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>",
+    function() vim.lsp.diagnostic.goto_next() end,
     desc = "Next Diagnostic",
   },
   {
     "<leader>lk",
-    "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>",
+    function() vim.lsp.diagnostic.goto_prev() end,
 
     desc = "Prev Diagnostic",
   },
   {
     "<leader>ll",
-    "<cmd>lua vim.lsp.codelens.run()<cr>",
+    function() vim.lsp.codelens.run() end,
     desc = "CodeLens Action"
   },
   {
     "<leader>lq",
-    "<cmd>lua vim.diagnostic.setloclist()<cr>",
+    function() vim.diagnostic.setloclist() end,
     desc = "Quickfix"
   },
   {
     "<leader>lr",
-    "<cmd>lua vim.lsp.buf.rename()<cr>",
+    function() vim.lsp.buf.rename() end,
     desc = "Rename"
   },
   {
@@ -135,7 +174,7 @@ local mappings = {
   },
   {
     "<leader>l@",
-    "<cmd>lua require('lspconfig').ltex.setup({settings={ltex={language ='en-AU'}}})<cr><cmd>LspStart ltex<cr>",
+    "<cmd>lua function() require('lspconfig').ltex.setup({settings={ltex={language ='en-AU'}}})<cr><cmd>LspStart ltex<cr>",
     desc = "Enable LTex"
   },
 

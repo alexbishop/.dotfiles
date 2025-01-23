@@ -160,25 +160,23 @@ require("mason-lspconfig").setup({
                 vim.fn.stdpath("config") .. "/lua"
               }
             },
-            -- format =
-            -- {
-            --   enable = true,
-            --   -- here is some very opinionated formatting options
-            --   defaultConfig =
-            --   {
-            --     indent_style = "space",
-            --     quote_style = "double",
-            --     line_space_after_if_statement = "max(2)",
-            --     line_space_after_do_statement = "max(2)",
-            --     line_space_after_while_statement = "max(2)",
-            --     line_space_after_repeat_statement = "max(r)",
-            --     line_space_after_for_statement = "max(2)",
-            --     line_space_after_local_or_assign_statement = "max(2)",
-            --     line_space_after_function_statement = "fixed(2)",
-            --     line_space_after_expression_statement = "max(2)",
-            --     line_space_after_comment = "max(2)",
-            --   }
-            -- },
+            format = {
+              enable = true,
+              -- here is some very opinionated formatting options
+              defaultConfig = {
+                indent_style = "space",
+                quote_style = "double",
+                -- line_space_after_if_statement = "max(2)",
+                -- line_space_after_do_statement = "max(2)",
+                -- line_space_after_while_statement = "max(2)",
+                -- line_space_after_repeat_statement = "max(r)",
+                -- line_space_after_for_statement = "max(2)",
+                -- line_space_after_local_or_assign_statement = "max(2)",
+                -- line_space_after_function_statement = "fixed(2)",
+                -- line_space_after_expression_statement = "max(2)",
+                -- line_space_after_comment = "max(2)",
+              }
+            },
           }
         }
       }
