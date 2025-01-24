@@ -1,10 +1,18 @@
 local nvim_tree = require("nvim-tree")
 
 nvim_tree.setup {
+  hijack_cursor = true,
+
+  disable_netrw = true,
+
+  update_cwd = true,
+  sync_root_with_cwd = true,
+  respect_buf_cwd = true,
   update_focused_file = {
     enable = true,
-    update_cwd = true,
+    update_root = true
   },
+
   renderer = {
     root_folder_modifier = ":t",
     icons = {

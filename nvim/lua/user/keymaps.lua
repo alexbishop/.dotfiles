@@ -41,6 +41,12 @@ keymap("n", "<C-Right>", ":vertical resize +1<CR>", opts)
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
+-- Navigate tabs
+--  I added the Alt key here since <Tab> is one of the default
+--  keybindings in NVimTree
+keymap("n", "<M-Tab>", ":tabn<CR>", opts)
+keymap("n", "<M-S-Tab>", ":tabp<CR>", opts)
+
 -- Visual --
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
@@ -60,14 +66,14 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
 -- toggle comments
 keymap(
-  'x',
+  "x",
   "<C-/>",
   "gc",
-  { desc = 'Comment toggle linewise' }
+  { desc = "Comment toggle linewise" }
 )
 keymap(
-  'n',
+  "n",
   "<C-/>",
   "gcc",
-  { desc = 'Comment toggle blockwise' }
+  { desc = "Comment toggle blockwise" }
 )

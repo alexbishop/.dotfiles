@@ -76,14 +76,18 @@ pckr.add({
 
   -- support for whichkeys
 
+  "mbbill/undotree",
+  "moll/vim-bbye",
+  "drybalka/tree-climber.nvim",
+
   {
     "folke/which-key.nvim",
     tag = "v3.15.0",
-    requires = {
-      "mbbill/undotree",
-      "moll/vim-bbye",
-      "drybalka/tree-climber.nvim",
-    },
+    -- requires = {
+    --   "mbbill/undotree",
+    --   "moll/vim-bbye",
+    --   "drybalka/tree-climber.nvim",
+    -- },
     config = function() require("user.setup.which-key") end,
   },
 
@@ -124,9 +128,23 @@ pckr.add({
   },
 
   {
-    "kyazdani42/nvim-tree.lua",
+    "ahmedkhalf/project.nvim",
+    requires = {
+      "nvim-telescope/telescope.nvim",
+    },
+    config = function()
+      require("project_nvim").setup({
+        detection_methods = { "pattern" },
+      })
+      require("telescope").load_extension("projects")
+    end,
+  },
+
+  {
+    "nvim-tree/nvim-tree.lua",
     requires = {
       "nvim-tree/nvim-web-devicons",
+      "ahmedkhalf/project.nvim",
     },
     config = function() require("user.setup.nvim-tree") end
   },
@@ -167,16 +185,6 @@ pckr.add({
     config = function() require("ibl").setup() end,
   },
 
-  {
-    "ahmedkhalf/project.nvim",
-    requires = {
-      "nvim-telescope/telescope.nvim",
-    },
-    config = function()
-      require("project_nvim").setup()
-      require("telescope").load_extension("projects")
-    end,
-  },
 
 
   {
