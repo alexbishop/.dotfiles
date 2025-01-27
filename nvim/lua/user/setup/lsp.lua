@@ -65,8 +65,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
       { buffer = event.buf, desc = "LSP" }
     )
 
-    vim.keymap.set("n",
-      "<leader>la",
+    vim.keymap.set("n", 
+      "<leader>l<C-a>",
       "<cmd>lua vim.lsp.buf.code_action()<cr>",
       { buffer = event.buf, desc = "Code Action" }
     )
@@ -85,33 +85,34 @@ vim.api.nvim_create_autocmd("LspAttach", {
       "<cmd>lua vim.lsp.buf.format({ async = true })<cr>",
       { buffer = event.buf, desc = "Format" }
     )
+    -- -- I don't really use the following teo at all
+    -- vim.keymap.set("n",--
+    --   "<leader>li",
+    --   "<cmd>LspInfo<cr>",
+    --   { buffer = event.buf, desc = "Info" }
+    -- )
+    -- vim.keymap.set("n",--
+    --   "<leader>lI",
+    --   "<cmd>LspInstallInfo<cr>",
+    --   { buffer = event.buf, desc = "Installer Info" }
+    -- )
     vim.keymap.set("n",
-      "<leader>li",
-      "<cmd>LspInfo<cr>",
-      { buffer = event.buf, desc = "Info" }
-    )
-    vim.keymap.set("n",
-      "<leader>lI",
-      "<cmd>LspInstallInfo<cr>",
-      { buffer = event.buf, desc = "Installer Info" }
-    )
-    vim.keymap.set("n",
-      "<leader>lj",
+      "<leader>l<C-j>",
       "<cmd>lua vim.lsp.diagnostic.goto_next()<cr>",
       { buffer = event.buf, desc = "Next Diagnostic", }
     )
     vim.keymap.set("n",
-      "<leader>lk",
+      "<leader>l<C-k>",
       "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>",
       { buffer = event.buf, desc = "Prev Diagnostic", }
     )
     vim.keymap.set("n",
-      "<leader>ll",
+      "<leader>l<C-l>",
       "<cmd>lua vim.lsp.codelens.run()<cr>",
       { buffer = event.buf, desc = "CodeLens Action" }
     )
     vim.keymap.set("n",
-      "<leader>lq",
+      "<leader>lQ",
       "<cmd>lua vim.diagnostic.setloclist()<cr>",
       { buffer = event.buf, desc = "Quickfix" }
     )
@@ -120,7 +121,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
       "<cmd>lua vim.lsp.buf.rename()<cr>",
       { buffer = event.buf, desc = "Rename" }
     )
-    vim.keymap.set("n",
+    vim.keymap.set("n", -- overrides vimtex togglemain
       "<leader>ls",
       "<cmd>Telescope lsp_document_symbols<cr>",
       { buffer = event.buf, desc = "Document Symbols" }
