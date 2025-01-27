@@ -54,6 +54,133 @@ vim.api.nvim_create_autocmd("LspAttach", {
       buffer = event.buf,
       desc = "Execute code action",
     })
+
+    --------------------------------------------
+    --- LSP
+    --------------------------------------------
+
+    vim.keymap.set("n",
+      "<leader>l",
+      "<nop>",
+      { buffer = event.buf, desc = "LSP" }
+    )
+
+    vim.keymap.set("n",
+      "<leader>la",
+      "<cmd>lua vim.lsp.buf.code_action()<cr>",
+      { buffer = event.buf, desc = "Code Action" }
+    )
+    vim.keymap.set("n",
+      "<leader>ld",
+      "<cmd>Telescope diagnostics bufnr=0<cr>",
+      { buffer = event.buf, desc = "Document Diagnostics", }
+    )
+    vim.keymap.set("n",
+      "<leader>lw",
+      "<cmd>Telescope diagnostics<cr>",
+      { buffer = event.buf, desc = "Workspace Diagnostics", }
+    )
+    vim.keymap.set("n",
+      "<leader>lf",
+      "<cmd>lua vim.lsp.buf.format({ async = true })<cr>",
+      { buffer = event.buf, desc = "Format" }
+    )
+    vim.keymap.set("n",
+      "<leader>li",
+      "<cmd>LspInfo<cr>",
+      { buffer = event.buf, desc = "Info" }
+    )
+    vim.keymap.set("n",
+      "<leader>lI",
+      "<cmd>LspInstallInfo<cr>",
+      { buffer = event.buf, desc = "Installer Info" }
+    )
+    vim.keymap.set("n",
+      "<leader>lj",
+      "<cmd>lua vim.lsp.diagnostic.goto_next()<cr>",
+      { buffer = event.buf, desc = "Next Diagnostic", }
+    )
+    vim.keymap.set("n",
+      "<leader>lk",
+      "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>",
+      { buffer = event.buf, desc = "Prev Diagnostic", }
+    )
+    vim.keymap.set("n",
+      "<leader>ll",
+      "<cmd>lua vim.lsp.codelens.run()<cr>",
+      { buffer = event.buf, desc = "CodeLens Action" }
+    )
+    vim.keymap.set("n",
+      "<leader>lq",
+      "<cmd>lua vim.diagnostic.setloclist()<cr>",
+      { buffer = event.buf, desc = "Quickfix" }
+    )
+    vim.keymap.set("n",
+      "<leader>lr",
+      "<cmd>lua vim.lsp.buf.rename()<cr>",
+      { buffer = event.buf, desc = "Rename" }
+    )
+    vim.keymap.set("n",
+      "<leader>ls",
+      "<cmd>Telescope lsp_document_symbols<cr>",
+      { buffer = event.buf, desc = "Document Symbols" }
+    )
+    vim.keymap.set("n",
+      "<leader>lS",
+      "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
+      { buffer = event.buf, desc = "Workspace Symbols", }
+    )
+    vim.keymap.set("n",
+      "<leader>l@",
+      "<cmd>lua '<cmd>lua require('lspconfig').ltex.setup({settings={ltex={language ='en-AU'}}})<cr><cmd>LspStart ltex<cr>",
+      { buffer = event.buf, desc = "Enable LTex" }
+    )
+
+    --------------------------------------------
+    --- Tree Climber
+    --------------------------------------------
+
+    vim.keymap.set({ "n", "v", "o" },
+      "gt",
+      "<nop>",
+      { buffer = event.buf, desc = "Tree climber" }
+    )
+
+    vim.keymap.set({ "n", "v", "o" },
+      "gth",
+      '<cmd>lua require("tree-climber").goto_parent<cr>',
+      { buffer = event.buf, desc = "Go to parent", }
+    )
+    vim.keymap.set({ "n", "v", "o" },
+      "gtl",
+      '<cmd>lua require("tree-climber").goto_child<cr>',
+      { buffer = event.buf, desc = "Go to child", }
+    )
+    vim.keymap.set({ "n", "v", "o" },
+      "gtj",
+      '<cmd>lua require("tree-climber").goto_next<cr>',
+      { buffer = event.buf, desc = "Go to next", }
+    )
+    vim.keymap.set({ "n", "v", "o" },
+      "gtk",
+      '<cmd>lua require("tree-climber").goto_prev<cr>',
+      { buffer = event.buf, desc = "Go to previous", }
+    )
+    vim.keymap.set({ "n" },
+      "gt<c-k>",
+      '<cmd>lua require("tree-climber").swap_prev<cr>',
+      { buffer = event.buf, desc = "Swap with previous", }
+    )
+    vim.keymap.set({ "n" },
+      "gt<c-j>",
+      '<cmd>lua require("tree-climber").goto_next<cr>',
+      { buffer = event.buf, desc = "Swap with next", }
+    )
+    vim.keymap.set({ "n" },
+      "gt<c-h>",
+      '<cmd>lua require("tree-climber").highlight_node<cr>',
+      { buffer = event.buf, desc = "Highlight node", }
+    )
   end,
 })
 
@@ -77,21 +204,9 @@ cmp.setup({
     ["<C-p>"] =
         cmp.mapping.select_prev_item(cmp_select),
     ["<C-M-n>"] =
-        function()
-          if cmp.visible() then
-            cmp.select_next_item()
-          else
-            cmp.complete()
-          end
-        end,
+        cmp.mapping.scroll_docs(1),
     ["<C-M-p>"] =
-        function()
-          if cmp.visible() then
-            cmp.select_prev_item()
-          else
-            cmp.complete()
-          end
-        end,
+        cmp.mapping.scroll_docs(-1),
     ["<C-y>"] =
         cmp.mapping.confirm({ select = false }),
     ["<C-e>"] =

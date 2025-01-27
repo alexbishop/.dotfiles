@@ -77,3 +77,101 @@ keymap(
   "gcc",
   { desc = "Comment toggle blockwise" }
 )
+
+-- some additional maps for convienece
+
+keymap("n",
+  "<leader>a",
+  "<cmd>Alpha<cr>",
+  { desc = "Alpha" }
+)
+keymap("n",
+  "<leader>b",
+  '<cmd>lua require("telescope.builtin").buffers(require("telescope.themes").get_dropdown({ previewer = false }))<cr>',
+  { desc = "Buffers" }
+)
+keymap("n",
+  "<leader>e",
+  "<cmd>NvimTreeToggle<cr>",
+  { desc = "Explorer" }
+)
+keymap("n",
+  "<leader>c",
+  "<cmd>Bdelete!<CR>",
+  { desc = "Close Buffer" }
+)
+keymap("n",
+  "<leader>h",
+  "<cmd>nohlsearch<CR>",
+  { desc = "No Highlight" }
+)
+keymap("n",
+  "<leader>f",
+  '<cmd>lua require("telescope.builtin").find_files(require("telescope.themes").get_dropdown({ previewer = false }))<cr>',
+  { desc = "Find files" }
+)
+keymap("n",
+  "<leader>F",
+  "<cmd>Telescope live_grep theme=ivy<cr>",
+  { desc = "Find Text" }
+)
+keymap("n",
+  "<leader>P",
+  '<cmd>lua require("telescope").extensions.projects.projects()<cr>',
+  { desc = "Projects" }
+)
+keymap("n",
+  "<leader>u",
+  "<cmd>UndotreeToggle<cr>",
+  { desc = "Toggle Undotree" }
+)
+
+--GROUP Search
+
+keymap("n", "<leader>s", "<nop>", { desc = "Search" })
+
+keymap("n",
+  "<leader>sb",
+  "<cmd>Telescope git_branches<cr>",
+  { desc = "Checkout branch" }
+)
+keymap("n",
+  "<leader>sc",
+  "<cmd>Telescope colorscheme<cr>",
+  { desc = "Colorscheme" }
+)
+keymap("n",
+  "<leader>sh",
+  "<cmd>Telescope help_tags<cr>",
+  { desc = "Find Help" }
+)
+keymap("n",
+  "<leader>sm",
+  "<cmd>Telescope marks<cr>",
+  { desc = "Marks" }
+)
+keymap("n",
+  "<leader>sM",
+  "<cmd>Telescope man_pages<cr>",
+  { desc = "Man Pages" }
+)
+keymap("n",
+  "<leader>sr",
+  "<cmd>Telescope oldfiles<cr>",
+  { desc = "Open Recent File" }
+)
+keymap("n",
+  "<leader>sR",
+  "<cmd>Telescope registers<cr>",
+  { desc = "Registers" }
+)
+keymap("n",
+  "<leader>sk",
+  "<cmd>Telescope keymaps<cr>",
+  { desc = "Keymaps" }
+)
+keymap("n",
+  "<leader>sC",
+  "<cmd>Telescope commands<cr>",
+  { desc = "Commands" }
+)

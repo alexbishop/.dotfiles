@@ -83,12 +83,7 @@ pckr.add({
   {
     "folke/which-key.nvim",
     tag = "v3.15.0",
-    -- requires = {
-    --   "mbbill/undotree",
-    --   "moll/vim-bbye",
-    --   "drybalka/tree-climber.nvim",
-    -- },
-    config = function() require("user.setup.which-key") end,
+    config = function() require("which-key").setup() end,
   },
 
 
