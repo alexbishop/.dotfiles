@@ -132,7 +132,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     )
     vim.keymap.set("n",
       "<leader>l@",
-      "<cmd>lua '<cmd>lua require('lspconfig').ltex.setup({settings={ltex={language ='en-AU'}}})<cr><cmd>LspStart ltex<cr>",
+      "<cmd>lua require('user.setup.lsp').ltex()<cr>",
       { buffer = event.buf, desc = "Enable LTex" }
     )
 
@@ -317,3 +317,92 @@ require("mason-lspconfig").setup({
     ltex = function() end
   },
 })
+
+local M = {}
+
+M.ltex = function()
+  local pickers = require "telescope.pickers"
+  local finders = require "telescope.finders"
+  local conf = require("telescope.config").values
+  local actions = require "telescope.actions"
+  local action_state = require "telescope.actions.state"
+
+  local opts = require("telescope.themes").get_dropdown()
+  pickers.new(opts, {
+    prompt_title = "languages",
+    finder = finders.new_table {
+      results = {
+        -- these are the 3 language variants I mostly use, so I'll make them first
+        "en-AU",
+        "en-US",
+        "en-GB",
+        --
+        "en",
+        "en-CA",
+        "en-NZ",
+        "en-ZA",
+        --
+        "auto",
+        "ar",
+        "ast-ES",
+        "be-BY",
+        "br-FR",
+        "ca-ES",
+        "ca-ES-valencia",
+        "da-DK",
+        "de",
+        "de-AT",
+        "de-CH",
+        "de-DE",
+        "de-DE-x-simple-language",
+        "el-GR",
+        -- "en",
+        -- "en-AU",
+        -- "en-CA",
+        -- "en-GB",
+        -- "en-NZ",
+        -- "en-US",
+        -- "en-ZA",
+        "eo",
+        "es",
+        "es-AR",
+        "fa",
+        "fr",
+        "ga-IE",
+        "gl-ES",
+        "it",
+        "ja-JP",
+        "km-KH",
+        "nl",
+        "nl-BE",
+        "pl-PL",
+        "pt",
+        "pt-AO",
+        "pt-BR",
+        "pt-MZ",
+        "pt-PT",
+        "ro-RO",
+        "ru-RU",
+        "sk-SK",
+        "sl-SI",
+        "sv",
+        "ta-IN",
+        "tl-PH",
+        "uk-UA",
+        "zh-CN",
+      }
+    },
+    sorter = conf.generic_sorter(opts),
+    attach_mappings = function(prompt_bufnr, _)
+      actions.select_default:replace(function()
+        actions.close(prompt_bufnr)
+        local selection = action_state.get_selected_entry()
+        require("lspconfig").ltex.setup({ settings = { ltex = { language = selection[1] } } })
+        vim.cmd("LspStart ltex")
+      end)
+      return true
+    end,
+  }):find()
+end
+
+return M
