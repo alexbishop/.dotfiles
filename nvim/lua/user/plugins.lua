@@ -123,23 +123,9 @@ pckr.add({
   },
 
   {
-    "ahmedkhalf/project.nvim",
-    requires = {
-      "nvim-telescope/telescope.nvim",
-    },
-    config = function()
-      require("project_nvim").setup({
-        detection_methods = { "pattern" },
-      })
-      require("telescope").load_extension("projects")
-    end,
-  },
-
-  {
     "nvim-tree/nvim-tree.lua",
     requires = {
       "nvim-tree/nvim-web-devicons",
-      "ahmedkhalf/project.nvim",
     },
     config = function() require("user.setup.nvim-tree") end
   },

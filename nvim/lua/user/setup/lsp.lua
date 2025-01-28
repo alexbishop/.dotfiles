@@ -65,7 +65,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
       { buffer = event.buf, desc = "LSP" }
     )
 
-    vim.keymap.set("n", 
+    vim.keymap.set("n",
       "<leader>l<C-a>",
       "<cmd>lua vim.lsp.buf.code_action()<cr>",
       { buffer = event.buf, desc = "Code Action" }
@@ -121,7 +121,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
       "<cmd>lua vim.lsp.buf.rename()<cr>",
       { buffer = event.buf, desc = "Rename" }
     )
-    vim.keymap.set("n", -- overrides vimtex togglemain
+    vim.keymap.set("n", -- overrides vimtex toggle main
       "<leader>ls",
       "<cmd>Telescope lsp_document_symbols<cr>",
       { buffer = event.buf, desc = "Document Symbols" }

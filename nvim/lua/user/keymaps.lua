@@ -81,6 +81,11 @@ keymap(
 -- some additional maps for convienece
 
 keymap("n",
+  "<leader>H",
+  "<cmd>cd %:p:h<cr>",
+  { desc = "CD Here" }
+)
+keymap("n",
   "<leader>a",
   "<cmd>Alpha<cr>",
   { desc = "Alpha" }
@@ -114,11 +119,6 @@ keymap("n",
   "<leader>F",
   "<cmd>Telescope live_grep theme=ivy<cr>",
   { desc = "Find Text" }
-)
-keymap("n",
-  "<leader>P",
-  '<cmd>lua require("telescope").extensions.projects.projects()<cr>',
-  { desc = "Projects" }
 )
 keymap("n",
   "<leader>u",
