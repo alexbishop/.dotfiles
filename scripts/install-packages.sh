@@ -1,5 +1,7 @@
 #!/usr/bin/sh
 
+# Notice that gcc-multilib, libgtk-4-dev and libadwaita-1-dev are installed to build ghostty
+
 PACKAGES=$(cat << EOL
 alacritty
 bibtool
@@ -13,6 +15,7 @@ fd-find
 ffmpeg
 foot
 gap
+gcc-multilib
 gedit
 gh
 gimp
@@ -21,6 +24,8 @@ grim
 inkscape
 jq
 kitty
+libgtk-4-dev
+libadwaita-1-dev
 light
 locate
 luarocks
@@ -29,7 +34,6 @@ nodejs
 npm
 pcmanfm
 pipewire
-python3-neovim
 ripgrep
 ruby-bundler
 ruby-dev

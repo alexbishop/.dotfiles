@@ -14,18 +14,5 @@ for f in .clang-format .clangd .dircolors .bash_aliases ".local/bin/alacritty-ne
   fi
 done
 
-VAR=$(cat << EOL
-If present, consider changing the file
+ln -s "$(pwd)/sway/sway" ~/.local/bin/sway
 
-/usr/share/wayland-sessions/sway.desktop
-
-to the following
-
-[Desktop Entry]
-Name=Sway
-Comment=An i3-compatible Wayland compositor
-Exec=$(realpath ~)/.config/sway/sway
-Type=Application
-EOL
-)
-printf "%s\n" "$VAR"

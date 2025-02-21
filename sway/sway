@@ -1,11 +1,24 @@
 #!/bin/sh
 
-export MOZ_ENABLE_WAYLAND=1
+# session
 export XDG_SESSION_TYPE=wayland
+export XDG_SESSION_DESKTOP=sway
+export XDG_CURRENT_DESKTOP=sway
+
+# misc wayland stuff
+export MOZ_ENABLE_WAYLAND=1
 export GDK_BACKEND=wayland
 export QT_QPA_PLATFORM=wayland
-export XDG_CURRENT_DESKTOP=sway
+export SDL_VIDEODRIVER=wayland
+export _JAVA_AWT_WM_NONREPARENTING=1
+
+# theme
 export GTK_THEME=Adwaita:dark
 #export GTK2_RC_FILES=/usr/share/themes/Adwaita-dark/gtk-2.0/gtkrc
 
-exec sway
+# we have the if-else just in case sway changes its install location in later installs.
+if [ -f "/usr/local/bin/sway" ]; then
+/usr/loal/bin/sway $@
+else
+/usr/bin/sway $@
+fi
