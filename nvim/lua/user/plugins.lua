@@ -28,9 +28,11 @@ pckr.add({
 
   -- color scheme
 
+  { "catppuccin/nvim",
+    config = function() pcall(vim.cmd.colorscheme, "catppuccin-macchiato") end,
+  },
   {
     "folke/tokyonight.nvim",
-    config = function() pcall(vim.cmd.colorscheme, "tokyonight-night") end,
   },
 
   -- tree sitter

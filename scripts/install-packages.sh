@@ -56,6 +56,7 @@ xdg-desktop-portal-wlr
 xdotool
 xournalpp
 xwayland
+yt-dlp
 EOL
 )
 
