@@ -53,9 +53,11 @@ tar -xf "$temp_dir/zigup-x86_64-linux.tar.gz" -C "$HOME/.local/bin" || die
 
 chmod 755 "$HOME/.local/bin/zigup" || die
 
-zigup fetch 0.14.0 || die
-zigup default 0.14.0 || die
-zigup keep 0.14.0 || die
+zigup="$HOME/.local/bin/zigup"
+
+"$zigup" fetch 0.14.0 || die
+"$zigup" default 0.14.0 || die
+"$zigup" keep 0.14.0 || die
 
 remove_temp
 exit 0
