@@ -3,7 +3,6 @@
 # Notice that gcc-multilib, libgtk-4-dev and libadwaita-1-dev are installed to build ghostty
 
 PACKAGES=$(cat << EOL
-alacritty
 bibtool
 build-essential
 clang-format
@@ -13,6 +12,7 @@ curl
 evince
 fd-find
 ffmpeg
+fonts-hack-ttf
 foot
 gap
 gcc-multilib
@@ -23,7 +23,6 @@ git
 grim
 inkscape
 jq
-kitty
 libgtk-4-dev
 libadwaita-1-dev
 light
@@ -32,7 +31,6 @@ luarocks
 lynx
 nodejs
 npm
-pcmanfm
 pipewire
 ripgrep
 ruby-bundler
@@ -45,8 +43,8 @@ swayidle
 swaylock
 texlive-full
 texstudio
-tlp
 tmux
+vim
 vlc
 waybar
 wget
@@ -55,6 +53,7 @@ wofi
 xdg-desktop-portal-wlr
 xdotool
 xournalpp
+xscreensaver
 xwayland
 yt-dlp
 EOL
