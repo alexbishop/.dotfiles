@@ -13,10 +13,10 @@ cd "$HOME/.local/opt" || die
 
 # download everything
 git clone https://github.com/ghostty-org/ghostty || die
-git checkout v1.1.2 || die
+cd ghostty || die
+git checkout v1.1.3 || die
 
 # build ghostty
-cd ghostty || die
 zig build -Doptimize=ReleaseFast || die
 
 # add ghostty to your local bin, it needs to be run with `prefix` set as follows
