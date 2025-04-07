@@ -115,8 +115,9 @@ input type:keyboard {
 
 input type:touchpad {
   tap enabled
+  accel_profile flat
   scroll_method two_finger
-  pointer_accel 0.5 
+  pointer_accel 1
 }
 
 ### Key bindings
@@ -138,7 +139,7 @@ input type:touchpad {
     bindsym $mod+Shift+Return exec firefox
 
     #exec_always thunar --daemon
-    bindsym $mod+t exec pcmanfm
+    bindsym $mod+t exec thunar
 
     # Kill focused window
     bindsym $mod+Shift+q kill
