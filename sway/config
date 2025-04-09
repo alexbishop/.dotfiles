@@ -25,7 +25,7 @@ set $menuAll wofi --show=run
 #bindsym $mod+Delete exec clipman clear --tool=wofi
 #bindsym $mod+Shift+Delete exec clipman clear --all
 
-#exec bluetooth off
+exec bluetooth off
 
 # Fix Zoom
 #
