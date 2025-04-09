@@ -56,6 +56,7 @@ xournalpp
 xscreensaver
 xwayland
 yt-dlp
+zathura
 EOL
 )
 
