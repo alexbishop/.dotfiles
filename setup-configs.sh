@@ -14,5 +14,8 @@ for f in .clang-format .clangd .bash_aliases ; do
   fi
 done
 
-ln -s "$(pwd)/sway/sway" ~/.local/bin/sway
+if [ ! -e ~/.local/bin/sway ]
+then
+  ln -s "$(pwd)/sway/sway" ~/.local/bin/sway
+fi
 
