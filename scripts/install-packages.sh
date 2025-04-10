@@ -3,6 +3,7 @@
 # Notice that gcc-multilib, libgtk-4-dev and libadwaita-1-dev are installed to build ghostty
 
 PACKAGES=$(cat << EOL
+aptitude
 bibtool
 build-essential
 clang-format
@@ -23,6 +24,7 @@ git
 grim
 inkscape
 jq
+kdenlive
 libgtk-4-dev
 libadwaita-1-dev
 light
