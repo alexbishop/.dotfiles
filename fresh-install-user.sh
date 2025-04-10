@@ -1,5 +1,7 @@
 #!/usr/bin/sh
 
+PATH="$HOME/.config/bin:$PATH"
+
 ./scripts/install-fonts.sh
 ./scripts/install-nvim
 ./scripts/extra-settings.sh
