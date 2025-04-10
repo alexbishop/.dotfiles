@@ -2,7 +2,6 @@
 
 SCRIPT_INIT_DIR=$(pwd)
 
-zigup fetch 0.13.0
 zigup default 0.13.0
 
 die() {

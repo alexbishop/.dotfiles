@@ -55,9 +55,14 @@ chmod 755 "$HOME/.local/bin/zigup" || die
 
 zigup="$HOME/.local/bin/zigup"
 
+# version 0.13.0 is required to compile ghostty
+"$zigup" fetch 0.13.0 || die
 "$zigup" fetch 0.14.0 || die
-"$zigup" default 0.14.0 || die
+
 "$zigup" keep 0.14.0 || die
+"$zigup" keep 0.13.0 || die
+
+"$zigup" default 0.14.0 || die
 
 remove_temp
 exit 0
