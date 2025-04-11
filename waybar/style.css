@@ -88,6 +88,14 @@
   padding-right: 8pt;
 }
 
+#pulseaudio.volSpeaker {
+  padding-right: 0pt;
+}
+#pulseaudio.volMic {
+  min-width: 1.5em;
+  padding-right: 4pt;
+}
+
 #clock {
   padding-left: 4pt;
   padding-right: 4pt;

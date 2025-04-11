@@ -13,7 +13,8 @@
   ],
 	"modules-right": [
 		"custom/keyboard_backlight",
-		"pulseaudio",
+		"pulseaudio#volSpeaker",
+    "pulseaudio#volMic",
 		"battery",
 		"idle_inhibitor",
 		"tray",
@@ -135,7 +136,7 @@
 		"format": "{name}"
 	},
 
-	"pulseaudio": {
+	"pulseaudio#volSpeaker": {
 		"format": "{icon} {volume}%",
 		"format-bluetooth": "{icon} {volume}%",
 		"format-muted": "\uf6a9",
@@ -150,6 +151,15 @@
 		},
 		"scroll-step": 1,
 		"on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+		"tooltip": false
+	},
+	"pulseaudio#volMic": {
+		"format": "{format_source}",
+		"format-muted": "{format_source}",
+    "format-source": "\uf130",
+    "format-source-muted": "\uf131",
+		"scroll-step": 0,
+		"on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
 		"tooltip": false
 	},
 
