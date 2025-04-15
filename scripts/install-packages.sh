@@ -46,6 +46,7 @@ swaylock
 texlive-full
 texstudio
 tmux
+units
 vim
 vlc
 waybar
