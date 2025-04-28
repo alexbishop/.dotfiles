@@ -102,7 +102,7 @@ keymap("n",
 )
 keymap("n",
   "<leader>c",
-  "<cmd>Bdelete!<CR>",
+  "<cmd>Bdelete<CR>",
   { desc = "Close Buffer" }
 )
 keymap("n",
