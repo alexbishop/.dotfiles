@@ -143,7 +143,7 @@
 		"format-icons": {
 			"headphone": "",
 			"hands-free": "",
-			"headset": "",
+			"headset": "\uD83C\uDFA7", //%",
 			"phone": "",
 			"portable": "",
 			"car": "",
