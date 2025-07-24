@@ -57,9 +57,9 @@ echo "Downloaded Hack font"
 
 FA_ZIP="$WORK_DIR/fontawesome-free-6.5.1-desktop.zip"
 download_with_checksum \
-  "https://use.fontawesome.com/releases/v6.5.1/fontawesome-free-6.5.1-desktop.zip" \
+  "https://use.fontawesome.com/releases/v6.7.2/fontawesome-free-6.7.2-desktop.zip" \
   "$FA_ZIP" \
-  "88d13abdade8b24b5fbdf6fe7d3ee55507d2827be91990a066ed96b8a2a58003" \
+  "22ff7898b429b997a45e1cf89bb869ed3abcc65333d90289181ba5363c8fd19b" \
   || die
 echo "Downloaded Font Awesome"
 

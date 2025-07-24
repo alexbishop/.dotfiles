@@ -115,6 +115,9 @@ input type:keyboard {
 
 input type:touchpad {
   tap enabled
+  dwt disabled
+  middle_emulation enabled
+  natural_scroll disabled
   accel_profile flat
   scroll_method two_finger
   pointer_accel 1
