@@ -60,7 +60,7 @@
 #waybar {
   background: rgba(40, 40, 40, 0.8784313725); /* #282828e0 */
   color: @white;
-  font-family: 'Hack Nerd Font', 'Font Awesome 6 Free';
+  font-family: 'Hack', 'Font Awesome 6 Free', 'Hack Nerd Font';
   font-size: 10pt;
   /*font-weight: bold;*/
 }
