@@ -33,10 +33,12 @@ die() {
 mkdir -p "$HOME/.local/bin" || die
 
 download_with_checksum \
-  "https://github.com/neovim/neovim/releases/download/v0.11.3/nvim-linux-x86_64.appimage" \
-  "$HOME/.local/bin/nvim" \
-  "5f377dc48c49a4170bd698a80ef461a702b8ebb8b2f7ddbb776341503d36415f" \
+  "https://deb.nodesource.com/setup_23.x" \
+  "$HOME/setup_23.x.sh" \
+  "1644667c4aafc1fe70e9be22b4dd0e8c79b44de3acf89a9858582ace7a898bed" \
   || die
-chmod 755 "$HOME/.local/bin/nvim"
+chmod 755 "$HOME/setup_23.x.sh"
+cat "$HOME/setup_23.x.sh" 
+rm -f "$HOME/setup_23.x.sh" 
 
 exit 0

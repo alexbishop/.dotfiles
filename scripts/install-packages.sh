@@ -46,6 +46,7 @@ swaylock
 texlive-full
 texstudio
 tmux
+tree-sitter-cli
 units
 vim
 vlc

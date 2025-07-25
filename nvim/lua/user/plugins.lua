@@ -39,6 +39,7 @@ pckr.add({
 
   {
     "nvim-treesitter/nvim-treesitter",
+    tag = "v0.10.0",
     config = function() require("user.setup.treesitter") end,
   },
 
@@ -47,13 +48,14 @@ pckr.add({
 
   {
     "L3MON4D3/LuaSnip",
+    tag = "v2.4.0",
     run = "make install_jsregexp",
     requires = {
       "rafamadriz/friendly-snippets",
     },
   },
 
-  -- support for Mason which can be used to unstall language servers
+  -- support for Mason which can be used to install language servers
 
   {
     "neovim/nvim-lspconfig",
@@ -84,7 +86,7 @@ pckr.add({
 
   {
     "folke/which-key.nvim",
-    tag = "v3.15.0",
+    tag = "v3.17.0",
     config = function() require("which-key").setup() end,
   },
 
