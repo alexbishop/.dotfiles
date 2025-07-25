@@ -315,9 +315,15 @@ require("mason-lspconfig").setup({
     end,
     -- By default we do not initialise ltex
     --  it takes up way too much cpu power
-    ltex = function() end
+    ltex = function()
+      vim.lsp.enable('ltex', false)
+    end
   },
 })
+
+pcall(function ()
+  vim.lsp.enable('ltex', false)
+end)
 
 local M = {}
 
