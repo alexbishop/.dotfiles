@@ -1,4 +1,5 @@
 alias lynx="lynx -cfg=~/.config/lynx/lynx.cfg -lss=~/.config/lynx/lynx.lss"
+alias n=nvim
 
 if [ "prefix_$TERM" = "prefix_xterm-ghostty" ]; then
 alias clear="TERM=xterm clear"
