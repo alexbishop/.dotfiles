@@ -10,6 +10,7 @@ clang-format
 clang
 cmake
 curl
+elan
 evince
 fd-find
 ffmpeg
