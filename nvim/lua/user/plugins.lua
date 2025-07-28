@@ -109,6 +109,13 @@ pckr.add({
   },
 
   {
+    "nvim-tree/nvim-web-devicons",
+    requires={
+      "echasnovski/mini.icons",
+    },
+  },
+
+  {
     "nvim-lualine/lualine.nvim",
     requires = {
       "nvim-tree/nvim-web-devicons",
