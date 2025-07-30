@@ -404,8 +404,8 @@ M.ltex = function()
       actions.select_default:replace(function()
         actions.close(prompt_bufnr)
         local selection = action_state.get_selected_entry()
-        require("lspconfig").ltex.setup({ settings = { ltex = { language = selection[1] } } })
-        vim.cmd("LspStart ltex")
+        vim.lsp.config("ltex", { settings = { ltex = { language = selection[1] } } })
+        vim.lsp.enable("ltex")
       end)
       return true
     end,
