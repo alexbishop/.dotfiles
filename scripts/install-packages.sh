@@ -10,6 +10,7 @@ clang-format
 clang
 cmake
 curl
+default-jdk
 elan
 evince
 fd-find
@@ -22,6 +23,7 @@ gedit
 gh
 gimp
 git
+golang
 grim
 inkscape
 jq
