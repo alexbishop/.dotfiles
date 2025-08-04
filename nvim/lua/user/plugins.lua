@@ -39,7 +39,7 @@ pckr.add({
 
   {
     "nvim-treesitter/nvim-treesitter",
-    tag = "v0.10.0",
+    branch = "main",
     config = function() require("user.setup.treesitter") end,
   },
 
