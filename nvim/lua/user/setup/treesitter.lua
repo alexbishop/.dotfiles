@@ -1,9 +1,9 @@
-local configs = require("nvim-treesitter.configs")
-
-configs.setup({
-  --ensure_installed = "all",
-  -- there seems to be a problem with teal
-  -- ignore_install = { "teal", "scfg", "idlang" },
+require("nvim-treesitter.configs").setup({
+  ensure_installed = { "lua", "c", "cpp", "zig", "html", "css", "python" },
+  modules = {},
+  sync_install = false,
+  auto_install = true,
+  ignore_install = {},
   highlight = {
     enable = true,
     disable = { "css" },

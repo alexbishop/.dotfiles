@@ -25,6 +25,10 @@ vim.keymap.set({ "i", "s", "n" }, "<C-E>", function()
 end, opts)
 
 -- Normal --
+-- redefine the arrow keys to make things easier to navigate
+keymap("n", "<Up>", "gk", opts)
+keymap("n", "<Down>", "gj", opts)
+
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)

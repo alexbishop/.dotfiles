@@ -1,3 +1,134 @@
+require('mason').setup()
+require('mason-lspconfig').setup({
+  ensure_installed = {
+    "ts_ls",
+    "pyright",
+    "zls",
+    "clangd",
+    "lua_ls",
+    "texlab",
+    "ltex",
+  },
+  automatic_enable = {
+    exclude = { "ltex" },
+  },
+})
+
+vim.lsp.config('lua_ls', {
+  settings = {
+    Lua = {
+      runtime = {
+        version = 'LuaJIT',
+      },
+      diagnostics = {
+        globals = {
+          'vim',
+          'require'
+        },
+      },
+      workspace = {
+        library = vim.api.nvim_get_runtime_file("", true),
+      },
+      telemetry = {
+        enable = false,
+      },
+    },
+  },
+})
+
+vim.lsp.config('zls', {
+  settings = {
+    zls = {
+      enable_autofix = false
+    }
+  }
+})
+
+require("luasnip").config.set_config({
+  history = true,
+  updateevents = "TextChanged,TextChangedI",
+})
+
+-- setup cmp for autopairs
+require("nvim-autopairs").setup({
+  fast_wrap = {},
+  disable_filetype = { "TelescopePrompt", "vim" },
+})
+local cmp_autopairs = require "nvim-autopairs.completion.cmp"
+require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
+
+-- misc stuff
+
+-- vscode format
+require("luasnip.loaders.from_vscode").lazy_load { exclude = vim.g.vscode_snippets_exclude or {} }
+require("luasnip.loaders.from_vscode").lazy_load { paths = vim.g.vscode_snippets_path or "" }
+
+-- snipmate format
+require("luasnip.loaders.from_snipmate").load()
+require("luasnip.loaders.from_snipmate").lazy_load { paths = vim.g.snipmate_snippets_path or "" }
+
+-- lua format
+require("luasnip.loaders.from_lua").load()
+require("luasnip.loaders.from_lua").lazy_load { paths = vim.g.lua_snippets_path or "" }
+
+local cmp = require "cmp"
+
+cmp.setup({
+  completion = { completeopt = "menu,menuone" },
+
+  snippet = {
+    expand = function(args)
+      require("luasnip").lsp_expand(args.body)
+    end,
+  },
+
+  mapping = {
+    ["<C-n>"] =
+        cmp.mapping.select_next_item(),
+    ["<C-p>"] =
+        cmp.mapping.select_prev_item(),
+    ["<C-M-n>"] =
+        cmp.mapping.scroll_docs(1),
+    ["<C-M-p>"] =
+        cmp.mapping.scroll_docs(-1),
+    ["<C-y>"] =
+        cmp.mapping.confirm({ select = false }),
+    ["<C-e>"] =
+        cmp.mapping.abort(),
+
+    -- friendly snippets
+    ["<C-f>"] = cmp.mapping(function(fallback)
+      local luasnip = require("luasnip")
+      if luasnip.expand_or_locally_jumpable() then
+        luasnip.expand_or_jump()
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
+    -- Jump to the previous snippet placeholder
+    ["<C-b>"] = cmp.mapping(function(fallback)
+      local luasnip = require("luasnip")
+      if luasnip.locally_jumpable(-1) then
+        luasnip.jump(-1)
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
+  },
+
+  sources = {
+    { name = "nvim_lsp" },
+    { name = "luasnip" },
+    { name = "buffer" },
+    { name = "nvim_lua" },
+    { name = "async_path" },
+  },
+})
+
+--
+--
+--
+--
 -- Add cmp_nvim_lsp capabilities settings to lspconfig
 -- This should be executed before you configure any language server
 -- local lspconfig_defaults = require("lspconfig").util.default_config
@@ -184,146 +315,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
     )
   end,
 })
-
--- The following line is recomended in the documentation for friendly-snippets.
--- Apparently this speeds up the loading time.
-require("luasnip.loaders.from_vscode").lazy_load()
-
-local cmp = require("cmp")
-local cmp_select = { behavior = cmp.SelectBehavior.Select }
-
-cmp.setup({
-  sources = cmp.config.sources({
-    { name = "nvim_lsp" },
-    { name = "luasnip" },
-    { name = "path" },
-    { name = "buffer" },
-  }),
-  mapping = {
-    ["<C-n>"] =
-        cmp.mapping.select_next_item(cmp_select),
-    ["<C-p>"] =
-        cmp.mapping.select_prev_item(cmp_select),
-    ["<C-M-n>"] =
-        cmp.mapping.scroll_docs(1),
-    ["<C-M-p>"] =
-        cmp.mapping.scroll_docs(-1),
-    ["<C-y>"] =
-        cmp.mapping.confirm({ select = false }),
-    ["<C-e>"] =
-        cmp.mapping.abort(),
-
-    -- friendly snippets
-    ["<C-f>"] = cmp.mapping(function(fallback)
-      local luasnip = require("luasnip")
-      if luasnip.expand_or_locally_jumpable() then
-        luasnip.expand_or_jump()
-      else
-        fallback()
-      end
-    end, { "i", "s" }),
-    -- Jump to the previous snippet placeholder
-    ["<C-b>"] = cmp.mapping(function(fallback)
-      local luasnip = require("luasnip")
-      if luasnip.locally_jumpable(-1) then
-        luasnip.jump(-1)
-      else
-        fallback()
-      end
-    end, { "i", "s" }),
-  },
-  snippet = {
-    expand = function(args)
-      require("luasnip").lsp_expand(args.body)
-      -- -- You need Neovim v0.10 to use vim.snippet
-      -- vim.snippet.expand(args.body)
-    end,
-  },
-})
-
--- setup mason
-
-require("mason").setup({})
-require("mason-lspconfig").setup({
-  ensure_installed = { "ts_ls", "pyright", "zls", "clangd", "lua_ls", "texlab", "ltex" },
-  handlers = {
-    -- default setup
-    function(server_name)
-      require("lspconfig")[server_name].setup({})
-    end,
-
-    -- custom setups
-
-    lua_ls = function()
-      local runtime_path = vim.split(package.path, ";")
-      table.insert(runtime_path, "lua/?.lua")
-      table.insert(runtime_path, "lua/?/init.lua")
-
-      local config = {
-        settings = {
-          Lua = {
-            -- Disable telemetry
-            telemetry = { enable = false },
-            runtime = {
-              -- Tell the language server which version of Lua you're using
-              -- (most likely LuaJIT in the case of Neovim)
-              version = "LuaJIT",
-              path = runtime_path,
-            },
-            diagnostics = {
-              -- Get the language server to recognize the `vim` global
-              globals = { "vim" }
-            },
-            workspace = {
-              checkThirdParty = false,
-              library = {
-                -- Make the server aware of Neovim runtime files
-                vim.fn.expand("$VIMRUNTIME/lua"),
-                vim.fn.stdpath("config") .. "/lua"
-              }
-            },
-            format = {
-              enable = true,
-              -- here is some very opinionated formatting options
-              defaultConfig = {
-                indent_style = "space",
-                quote_style = "double",
-                -- line_space_after_if_statement = "max(2)",
-                -- line_space_after_do_statement = "max(2)",
-                -- line_space_after_while_statement = "max(2)",
-                -- line_space_after_repeat_statement = "max(r)",
-                -- line_space_after_for_statement = "max(2)",
-                -- line_space_after_local_or_assign_statement = "max(2)",
-                -- line_space_after_function_statement = "fixed(2)",
-                -- line_space_after_expression_statement = "max(2)",
-                -- line_space_after_comment = "max(2)",
-              }
-            },
-          }
-        }
-      }
-      require("lspconfig").lua_ls.setup(config)
-    end,
-    zls = function()
-      require("lspconfig").zls.setup({
-        settings = {
-          zls = {
-            enable_autofix = false
-          }
-        }
-      })
-    end,
-    -- By default we do not initialise ltex
-    --  it takes up way too much cpu power
-    ltex = function()
-      vim.lsp.enable('ltex', false)
-    end
-  },
-})
-
-pcall(function ()
-  vim.lsp.enable('ltex', false)
-end)
 
 local M = {}
 

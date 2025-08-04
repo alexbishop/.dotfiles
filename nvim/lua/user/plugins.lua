@@ -39,7 +39,7 @@ pckr.add({
 
   {
     "nvim-treesitter/nvim-treesitter",
-    tag = "v0.10.0",
+    branch = "main",
     config = function() require("user.setup.treesitter") end,
   },
 
@@ -60,19 +60,21 @@ pckr.add({
   {
     "neovim/nvim-lspconfig",
     requires = {
-      -- lsp stuff
+      -- cmp stuff
       "hrsh7th/nvim-cmp",
-       -- "hrsh7th/cmp-nvim-lsp",
-       -- "hrsh7th/cmp-path",
+      "L3MON4D3/LuaSnip",
+
+      -- snippets
+      "saadparwaiz1/cmp_luasnip",
+      "hrsh7th/cmp-nvim-lua",
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-buffer",
+      "https://codeberg.org/FelipeLema/cmp-async-path.git",
+      "windwp/nvim-autopairs",
 
       -- mason
       "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
-
-      -- snippets
-      -- "hrsh7th/cmp-buffer",
-      "saadparwaiz1/cmp_luasnip",
-      "L3MON4D3/LuaSnip"
     },
     config = function() require("user.setup.lsp") end,
   },
@@ -110,7 +112,7 @@ pckr.add({
 
   {
     "nvim-tree/nvim-web-devicons",
-    requires={
+    requires = {
       "echasnovski/mini.icons",
     },
   },
@@ -177,21 +179,27 @@ pckr.add({
     config = function() require("ibl").setup() end,
   },
 
-
-
   {
     "Julian/lean.nvim",
     requires = {
       "neovim/nvim-lspconfig",
       "nvim-lua/plenary.nvim",
-      -- 'andymass/vim-matchup',          -- for enhanced % motion behavior
+      "andymass/vim-matchup",          -- for enhanced % motion behavior
       "andrewradev/switch.vim",        -- For Lean switch support
       -- 'tomtom/tcomment_vim',         -- For commenting motions
+      "lewis6991/satellite.nvim",
       "nvim-telescope/telescope.nvim", -- For Loogle search
       "hrsh7th/nvim-cmp",              -- For LSP completion
     },
     config = function()
-      require("lean").setup({ mappings = true })
+      local lean = require("lean");
+      -- update the c to C so it doesn't interfear with the close buffer keymap
+      for i, v in ipairs(lean.mappings) do
+        if v[1] == "<LocalLeader>c" then
+          lean.mappings[i][1] = "<LocalLeader>C"
+        end
+      end
+      lean.setup({ mappings = true })
     end
 
   },
