@@ -70,7 +70,7 @@ pckr.add({
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-buffer",
       "https://codeberg.org/FelipeLema/cmp-async-path.git",
-      "windwp/nvim-autopairs",
+      -- "windwp/nvim-autopairs",
 
       -- mason
       "williamboman/mason.nvim",
