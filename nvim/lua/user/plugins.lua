@@ -187,7 +187,7 @@ pckr.add({
       "andymass/vim-matchup",          -- for enhanced % motion behavior
       "andrewradev/switch.vim",        -- For Lean switch support
       -- 'tomtom/tcomment_vim',         -- For commenting motions
-      "lewis6991/satellite.nvim",
+      -- "lewis6991/satellite.nvim",
       "nvim-telescope/telescope.nvim", -- For Loogle search
       "hrsh7th/nvim-cmp",              -- For LSP completion
     },
