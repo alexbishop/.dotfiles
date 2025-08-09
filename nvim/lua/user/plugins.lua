@@ -137,6 +137,7 @@ pckr.add({
 
   {
     "nvim-tree/nvim-tree.lua",
+    tag = "v1.13.0",
     requires = {
       "nvim-tree/nvim-web-devicons",
     },
@@ -149,6 +150,31 @@ pckr.add({
     "ziglang/zig.vim",
     config = function()
       vim.g.zig_fmt_autosave = 0
+    end
+  },
+
+  -- projects
+  {
+    "LintaoAmons/cd-project.nvim",
+    tag = "v1.0.0",
+    config = function()
+      require("cd-project").setup({
+        projects_config_filepath = vim.fs.normalize(vim.fn.stdpath("config") .. "/cd-project.nvim.json"),
+        project_dir_pattern = {
+          ".git",
+          "Cargo.toml",
+          "package.json",
+          "go.mod",
+          "build.zig",
+          "pyproject.toml",
+          "setup.py",
+          "lakefile.toml",
+          "latexmkrc",
+        },
+        choice_format = "both",        -- optional, you can switch to "name" or "path"
+        projects_picker = "telescope", -- optional, you can switch to `vim-ui`
+        auto_register_project = false, -- optional, toggle on/off the auto add project behaviour
+      })
     end
   },
 
@@ -184,8 +210,8 @@ pckr.add({
     requires = {
       "neovim/nvim-lspconfig",
       "nvim-lua/plenary.nvim",
-      "andymass/vim-matchup",          -- for enhanced % motion behavior
-      "andrewradev/switch.vim",        -- For Lean switch support
+      "andymass/vim-matchup",   -- for enhanced % motion behavior
+      "andrewradev/switch.vim", -- For Lean switch support
       -- 'tomtom/tcomment_vim',         -- For commenting motions
       -- "lewis6991/satellite.nvim",
       "nvim-telescope/telescope.nvim", -- For Loogle search

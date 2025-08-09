@@ -130,6 +130,25 @@ keymap("n",
   { desc = "Toggle Undotree" }
 )
 
+-- group project
+keymap("n", "<leader>p", "<nop>", { desc = "Project" })
+
+keymap("n",
+  "<leader>pa",
+  "<cmd>CdProjectAdd<cr>",
+  { desc = "Add project" }
+)
+keymap("n",
+  "<leader>pd",
+  "<cmd>CdProjectDelete<cr>",
+  { desc = "Delete project" }
+)
+keymap("n",
+  "<leader>ps",
+  "<cmd>CdProject<cr>",
+  { desc = "Search project" }
+)
+
 --GROUP Search
 
 keymap("n", "<leader>s", "<nop>", { desc = "Search" })
