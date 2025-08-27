@@ -55,22 +55,31 @@ pckr.add({
     },
   },
 
+  {
+    "Saghen/blink.cmp",
+    tag = 'v1.6.0',
+    run = "cargo build --release",
+    requires = {
+      "L3MON4D3/LuaSnip",
+    },
+  },
+
   -- support for Mason which can be used to install language servers
 
   {
     "neovim/nvim-lspconfig",
     requires = {
       -- cmp stuff
-      -- Saghen/blink.cmp
-      "hrsh7th/nvim-cmp",
+      "Saghen/blink.cmp",
+      -- "hrsh7th/nvim-cmp",
       "L3MON4D3/LuaSnip",
 
       -- snippets
-      "saadparwaiz1/cmp_luasnip",
-      "hrsh7th/cmp-nvim-lua",
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-buffer",
-      "https://codeberg.org/FelipeLema/cmp-async-path.git",
+      -- "saadparwaiz1/cmp_luasnip",
+      -- "hrsh7th/cmp-nvim-lua",
+      -- "hrsh7th/cmp-nvim-lsp",
+      -- "hrsh7th/cmp-buffer",
+      -- "https://codeberg.org/FelipeLema/cmp-async-path.git",
       -- "windwp/nvim-autopairs",
 
       -- mason
@@ -214,9 +223,10 @@ pckr.add({
       "andymass/vim-matchup",   -- for enhanced % motion behavior
       "andrewradev/switch.vim", -- For Lean switch support
       "tomtom/tcomment_vim",         -- For commenting motions
+      "Saghen/blink.cmp",
       -- "lewis6991/satellite.nvim",
       "nvim-telescope/telescope.nvim", -- For Loogle search
-      "hrsh7th/nvim-cmp",              -- For LSP completion
+      -- "hrsh7th/nvim-cmp",              -- For LSP completion
     },
     config = function()
       local lean = require("lean");

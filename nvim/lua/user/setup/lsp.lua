@@ -71,59 +71,84 @@ require("luasnip.loaders.from_snipmate").lazy_load { paths = vim.g.snipmate_snip
 require("luasnip.loaders.from_lua").load()
 require("luasnip.loaders.from_lua").lazy_load { paths = vim.g.lua_snippets_path or "" }
 
-local cmp = require "cmp"
+require("blink.cmp").setup{
+  keymap = {
+    preset = "none",
 
-cmp.setup({
-  completion = { completeopt = "menu,menuone" },
+    ['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
+    ['<C-e>'] = { 'hide' },
+    ['<C-y>'] = { 'select_and_accept' },
 
-  snippet = {
-    expand = function(args)
-      require("luasnip").lsp_expand(args.body)
-    end,
-  },
+    ['<C-S-n>'] = { 'select_prev', 'fallback' },
+    ['<C-S-p>'] = { 'select_next', 'fallback' },
+    ['<C-p>'] = { 'select_prev', 'fallback_to_mappings' },
+    ['<C-n>'] = { 'select_next', 'fallback_to_mappings' },
 
-  mapping = {
-    ["<C-n>"] =
-        cmp.mapping.select_next_item(),
-    ["<C-p>"] =
-        cmp.mapping.select_prev_item(),
-    ["<C-M-n>"] =
-        cmp.mapping.scroll_docs(1),
-    ["<C-M-p>"] =
-        cmp.mapping.scroll_docs(-1),
-    ["<C-y>"] =
-        cmp.mapping.confirm({ select = false }),
-    ["<C-e>"] =
-        cmp.mapping.abort(),
+    ['<C-b>'] = { 'scroll_documentation_up', 'fallback' },
+    ['<C-f>'] = { 'scroll_documentation_down', 'fallback' },
 
-    -- friendly snippets
-    ["<C-f>"] = cmp.mapping(function(fallback)
-      local luasnip = require("luasnip")
-      if luasnip.expand_or_locally_jumpable() then
-        luasnip.expand_or_jump()
-      else
-        fallback()
-      end
-    end, { "i", "s" }),
-    -- Jump to the previous snippet placeholder
-    ["<C-b>"] = cmp.mapping(function(fallback)
-      local luasnip = require("luasnip")
-      if luasnip.locally_jumpable(-1) then
-        luasnip.jump(-1)
-      else
-        fallback()
-      end
-    end, { "i", "s" }),
-  },
+    ['<C-Tab>'] = { 'snippet_forward', 'fallback' },
+    ['<C-S-Tab>'] = { 'snippet_backward', 'fallback' },
 
-  sources = {
-    { name = "nvim_lsp" },
-    { name = "luasnip" },
-    { name = "buffer" },
-    { name = "nvim_lua" },
-    { name = "async_path" },
-  },
-})
+    ['<C-k>'] = { 'show_signature', 'hide_signature', 'fallback' },
+  }
+}
+
+
+--
+-- local cmp = require "cmp"
+--
+-- cmp.setup({
+--   completion = { completeopt = "menu,menuone" },
+--
+--   snippet = {
+--     expand = function(args)
+--       require("luasnip").lsp_expand(args.body)
+--     end,
+--   },
+--
+--   mapping = {
+--     ["<C-n>"] =
+--         cmp.mapping.select_next_item(),
+--     ["<C-p>"] =
+--         cmp.mapping.select_prev_item(),
+--     ["<C-M-n>"] =
+--         cmp.mapping.scroll_docs(1),
+--     ["<C-M-p>"] =
+--         cmp.mapping.scroll_docs(-1),
+--     ["<C-y>"] =
+--         cmp.mapping.confirm({ select = false }),
+--     ["<C-e>"] =
+--         cmp.mapping.abort(),
+--
+--     -- friendly snippets
+--     ["<C-f>"] = cmp.mapping(function(fallback)
+--       local luasnip = require("luasnip")
+--       if luasnip.expand_or_locally_jumpable() then
+--         luasnip.expand_or_jump()
+--       else
+--         fallback()
+--       end
+--     end, { "i", "s" }),
+--     -- Jump to the previous snippet placeholder
+--     ["<C-b>"] = cmp.mapping(function(fallback)
+--       local luasnip = require("luasnip")
+--       if luasnip.locally_jumpable(-1) then
+--         luasnip.jump(-1)
+--       else
+--         fallback()
+--       end
+--     end, { "i", "s" }),
+--   },
+--
+--   sources = {
+--     { name = "nvim_lsp" },
+--     { name = "luasnip" },
+--     { name = "buffer" },
+--     { name = "nvim_lua" },
+--     { name = "async_path" },
+--   },
+-- })
 
 --
 --
