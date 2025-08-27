@@ -139,7 +139,7 @@ input type:touchpad {
     #     SPLIT='v' \
     #     kitty nnn -de
 
-    bindsym $mod+Shift+Return exec firefox
+    bindsym $mod+Shift+Return exec zen
 
     #exec_always thunar --daemon
     bindsym $mod+t exec thunar
