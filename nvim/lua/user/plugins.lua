@@ -61,6 +61,7 @@ pckr.add({
     "neovim/nvim-lspconfig",
     requires = {
       -- cmp stuff
+      -- Saghen/blink.cmp
       "hrsh7th/nvim-cmp",
       "L3MON4D3/LuaSnip",
 
@@ -212,7 +213,7 @@ pckr.add({
       "nvim-lua/plenary.nvim",
       "andymass/vim-matchup",   -- for enhanced % motion behavior
       "andrewradev/switch.vim", -- For Lean switch support
-      -- 'tomtom/tcomment_vim',         -- For commenting motions
+      "tomtom/tcomment_vim",         -- For commenting motions
       -- "lewis6991/satellite.nvim",
       "nvim-telescope/telescope.nvim", -- For Loogle search
       "hrsh7th/nvim-cmp",              -- For LSP completion
@@ -225,6 +226,7 @@ pckr.add({
           lean.mappings[i][1] = "<LocalLeader>C"
         end
       end
+      -- setup lean support
       lean.setup({ mappings = true })
     end
 

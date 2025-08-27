@@ -131,20 +131,20 @@ keymap("n",
 )
 
 -- group project
-keymap("n", "<leader>p", "<nop>", { desc = "Project" })
+keymap("n", "<leader>P", "<nop>", { desc = "Project" })
 
 keymap("n",
-  "<leader>pa",
+  "<leader>Pa",
   "<cmd>CdProjectAdd<cr>",
   { desc = "Add project" }
 )
 keymap("n",
-  "<leader>pd",
+  "<leader>Pd",
   "<cmd>CdProjectDelete<cr>",
   { desc = "Delete project" }
 )
 keymap("n",
-  "<leader>ps",
+  "<leader>Ps",
   "<cmd>CdProject<cr>",
   { desc = "Search project" }
 )
