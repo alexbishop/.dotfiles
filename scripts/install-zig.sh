@@ -45,9 +45,9 @@ die() {
 mkdir -p "$HOME/.local/bin" || die
 
 download_with_checksum \
-  "https://github.com/marler8997/zigup/releases/download/v2025_01_02/zigup-x86_64-linux.tar.gz" \
+  "https://github.com/marler8997/zigup/releases/download/v2025_05_24/zigup-x86_64-linux.tar.gz" \
   "$temp_dir/zigup-x86_64-linux.tar.gz" \
-  "1413d8369a34284bae39d17c9488634c89122181d831006bc1ea22f68e505522" \
+  "1cd459fb8d83e3967eb6b97c30d1929427f3401167cdd5c5bac54aa56acbe4f4" \
   || die
 tar -xf "$temp_dir/zigup-x86_64-linux.tar.gz" -C "$HOME/.local/bin" || die
 
@@ -57,12 +57,12 @@ zigup="$HOME/.local/bin/zigup"
 
 # version 0.13.0 is required to compile ghostty
 "$zigup" fetch 0.13.0 || die
-"$zigup" fetch 0.14.0 || die
+"$zigup" fetch 0.15.1 || die
 
-"$zigup" keep 0.14.0 || die
 "$zigup" keep 0.13.0 || die
+"$zigup" keep 0.15.1 || die
 
-"$zigup" default 0.14.0 || die
+"$zigup" default 0.15.1 || die
 
 remove_temp
 exit 0
