@@ -68,6 +68,7 @@ pckr.add({
 
   {
     "neovim/nvim-lspconfig",
+    -- tag = "v2.4.0",
     requires = {
       -- cmp stuff
       -- "Saghen/blink.cmp",
